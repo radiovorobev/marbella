@@ -1,0 +1,172 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: #e51b22;
+  height: 100vh;
+  margin: 0;
+  overflow: hidden;
+  position: relative;
+}
+
+main {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.backgroundVideo {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  min-width: 100%;
+  min-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: cover;
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.1);
+  z-index: 2;
+}
+
+.content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 40px;
+}
+
+.logo {
+  width: 200px;
+  height: 200px;
+  transition: all 0.3s ease;
+}
+
+.cta-button {
+  padding: 15px 40px;
+  font-size: 18px;
+  color: white;
+  background-color: transparent;
+  border: 2px solid white;
+  border-radius: 30px;
+  cursor: pointer;
+  text-decoration: none;
+  font-family: Arial, sans-serif;
+  letter-spacing: 1px;
+  transition: all 0.3s ease;
+}
+
+.cta-button:hover {
+  background-color: white;
+  color: #e51b22;;
+  transform: translateY(-2px);
+}
+
+.cta-button:active {
+  transform: translateY(0);
+}
+
+/* Mobile Styles */
+@media only screen and (max-width: 768px) {
+  .logo {
+      width: 150px;
+      height: 150px;
+  }
+
+  .backgroundVideo {
+      height: 100vh;
+      width: auto;
+      object-position: center;
+  }
+
+  .cta-button {
+      padding: 12px 30px;
+      font-size: 16px;
+  }
+
+  .content {
+      gap: 30px;
+  }
+}
+
+/* Small Mobile Styles */
+@media only screen and (max-width: 480px) {
+  .logo {
+      width: 120px;
+      height: 120px;
+  }
+
+  .content {
+      padding: 15px;
+      gap: 25px;
+  }
+
+  .cta-button {
+      padding: 10px 25px;
+      font-size: 14px;
+  }
+}
+
+/* Landscape Mode Styles */
+@media only screen and (max-height: 480px) and (orientation: landscape) {
+  .logo {
+      width: 100px;
+      height: 100px;
+  }
+
+  .content {
+      padding: 10px;
+      gap: 20px;
+  }
+}
+
+/* Handle Older Browsers */
+@supports not (object-fit: cover) {
+  .backgroundVideo {
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      transform: none;
+  }
+}
+
+/* Prefers Reduced Motion */
+@media (prefers-reduced-motion: reduce) {
+  .backgroundVideo {
+      display: none;
+  }
+  
+  body {
+      background: linear-gradient(to bottom, cadetblue, darkslategray);
+  }
+
+  .logo {
+      transition: none;
+  }
+
+  .cta-button {
+      transition: none;
+  }
+}
