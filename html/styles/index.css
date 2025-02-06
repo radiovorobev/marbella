@@ -130,7 +130,10 @@ main {
 }
 
 .backgroundVideo {
-  max-width: 100%;
+  width: 100%;
+  max-width: 1440px;
+  max-height: 780px;
+  object-fit: fill;
 }
 
 .section__image img {
