@@ -1,0 +1,20 @@
+@font-face {
+    font-family: 'Cera Pro';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./CeraPro-Regular.woff) format('woff');
+  }
+  
+  @font-face {
+    font-family: 'Cera Pro';
+    font-style: normal;
+    font-weight: 700;
+    src: url(./CeraPro-Bold.woff) format('woff');
+  }
+
+  @font-face {
+    font-family: 'Jomhuria';
+    font-style: normal;
+    font-weight: 400;
+    src: url(./Jomhuria-Regular.ttf) format('truetype');
+  }
