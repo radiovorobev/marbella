@@ -16,19 +16,24 @@
         <img src="./images/logo.svg" alt="Marbella International Football Academy" class="header__logo">
         <h1 class="header__logo_text">Marbella International Football Academy</h1>
       </div>
-      <menu>
+      <nav class="header__menu_container">
         <ul class="header__menu">
           <li><a href="#">About</a></li>
           <li><a href="#">Coaching Staff</a></li>
+          <!--
           <li><a href="#">Venues</a></li>
+          -->
           <li><a href="#">Programmes</a></li>
+          <li><a href="#">Equipment Center</a></li></li>
+          <!--
           <li><a href="#">Media</a></li>
+          -->
           <li><a href="#">Contact Us</a></li>
+          
         </ul>
-      </menu>
-      <div>
-        <div class="header__langButton">EN</div>
-      </div>
+      </nav>
+      <div class="header__cta-button">Ask a question</div>
+      <div class="header__langButton">EN</div>
     </div>
   </header>
   <main>
@@ -148,7 +153,7 @@
     <div class="footer__container">
       <div>
         <div class="header__logo_container">
-          <img src="./images/logo.svg" alt="Marbella International Football Academy" class="header__logo">
+          <img src="./images/logo.svg" alt="Marbella International Football Academy" class="footer__logo">
           <h1 class="header__logo_text">Marbella International Football Academy</h1>
         </div>
         <menu class="footer__menu_container">
@@ -197,7 +202,7 @@
         <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
       </div>
       <div class="footer__contacts">
-        <p class="footer__phone">+12 345 5678</p>
+        <p class="footer__phone">+34 663 13 12 78</p>
         <a class="footer__mail" href="info@academymarbella.com">info@academymarbella.com</a>
         <div class="footer__social">
           <img src="./images/icon_vk.svg" alt="VK" class="footer__social-icon">
@@ -208,4 +213,14 @@
     </div>
   </footer>
 </body>
+<script>
+  document.addEventListener('scroll', function() {
+  const headerContainer = document.querySelector('.header__container');
+  if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
+    headerContainer.classList.add('scrolled');
+  } else {
+    headerContainer.classList.remove('scrolled');
+  }
+});
+</script>
 </html>

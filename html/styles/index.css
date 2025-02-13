@@ -5,6 +5,11 @@
   background-color: #e51b22;
   color: #fff;
   width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
 }
 
 .header__container {
@@ -16,6 +21,7 @@
   justify-content: space-between;
   align-items: center;
   box-sizing: border-box;
+  transition: padding 0.3s ease-in-out;
 }
 
 .header__logo_container {
@@ -41,6 +47,68 @@
   text-decoration-skip-ink: none;
   margin: 0;
   text-transform: uppercase;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.header__cta-button {
+  width: 200px;
+  height: 40px;
+  background-color: #c8e51f;
+  color: #000;
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22.63px;
+  letter-spacing: 0%;
+  text-align: center;
+  display: none;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@supports (animation: fadeOut 0s ease-in-out) {
+  .header:has(.header__container.scrolled) .header__logo_text {
+    animation: fadeOut 0s forwards;
+  }
+}
+
+@supports (animation: fadeIn 1s ease-in-out) {
+  .header:has(.header__container.scrolled) .header__cta-button {
+    animation: fadeIn 1s forwards;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Анимация скрытия */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    display: block;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    display: none;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    display: none;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    display: flex;
+    transform: translateY(0);
+  }
 }
 
 .header__menu_container {
@@ -441,6 +509,20 @@ main {
   text-transform: none;
   max-width: 565px;
   margin: 0 auto 0 0;
+  position: relative;
+  max-height: 80px;
+  overflow: hidden;
+}
+
+.section__news_news-text::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 40px; 
+  background: linear-gradient(to bottom, rgba(242, 242, 247, 0) 0%, #f2f2f7 100%);
+  pointer-events: none;
 }
 
 .section__news_news-date {
@@ -508,6 +590,13 @@ main {
   justify-content: space-between;
   align-items: flex-start;
   box-sizing: border-box;
+}
+
+.footer__logo {
+  width: 80px;
+  height: 80px;
+  background-color: #e51b22;
+  border-radius: 50%;
 }
 
 .footer__menu {
