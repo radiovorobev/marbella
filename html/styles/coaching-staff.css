@@ -1,0 +1,423 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+
+.header {
+  background-color: #e51b22;
+  color: #fff;
+  width: 100%;
+  position: sticky;
+  top: 0;
+  left: 0;
+  z-index: 100;
+  transition: all 0.3s ease-in-out;
+}
+
+.header__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 20px 125px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: center;
+  box-sizing: border-box;
+  transition: padding 0.3s ease-in-out;
+}
+
+.header__logo_container {
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  max-width: 278px;
+  gap: 18px;
+}
+
+.header__logo {
+  width: 80px;
+  height: 80px;
+}
+
+.header__logo_text {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 14px;
+  font-weight: 700;
+  line-height: 17.6px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin: 0;
+  text-transform: uppercase;
+  transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+}
+
+.header__cta-button {
+  width: 200px;
+  height: 40px;
+  background-color: #c8e51f;
+  color: #000;
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 18px;
+  line-height: 22.63px;
+  letter-spacing: 0%;
+  text-align: center;
+  display: none;
+  text-transform: uppercase;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+@supports (animation: fadeOut 0s ease-in-out) {
+  .header:has(.header__container.scrolled) .header__logo_text {
+    animation: fadeOut 0s forwards;
+  }
+}
+
+@supports (animation: fadeIn 1s ease-in-out) {
+  .header:has(.header__container.scrolled) .header__cta-button {
+    animation: fadeIn 1s forwards;
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+/* Анимация скрытия */
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    display: block;
+    transform: translateY(0);
+  }
+  to {
+    opacity: 0;
+    display: none;
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    display: none;
+    transform: translateY(10px);
+  }
+  to {
+    opacity: 1;
+    display: flex;
+    transform: translateY(0);
+  }
+}
+
+.header__menu_container {
+  margin: 0;
+  padding: 0;
+}
+
+.header__menu {
+  display: flex;
+  flex-flow: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.header__menu a {
+  color: #fff;
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.11px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+}
+
+.header__langButton {
+  font-family: 'Cera Pro', sans-serif;
+  display: flex;
+  flex-flow: row;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 8px;
+  border: 2px solid #fff;
+  font-family: Cera Pro;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 22.63px;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+}
+
+main {
+  background-color: #f2f2f7;
+}
+ 
+.section__header {
+  background-color: #e51b22;
+  color: #fff;
+  width: 100%;
+  position: relative;
+  min-height: 200px;
+  width: 100%;
+  max-width: 1192px;
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-items: flex-end;
+  padding: 0 70px 27px 0;
+  box-sizing: border-box;
+}
+
+.section__header h2 {
+  font-family: Jomhuria;
+  font-size: 250px;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+  margin: 0;
+  position: absolute;
+  bottom: -118px;
+  left: -6px;
+}
+
+.section__header_social-icon {
+  width: 56px;
+  height: 56px;
+}
+
+.section__image {
+  display: flex;
+  max-width: 1440px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.section__image::after {
+  width: 100%;
+  height: 100%;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+
+.section__image_text {
+  position: absolute;
+  bottom: 90px;
+  left: 125px;
+  z-index: 1;
+  font-family: Jomhuria;
+  font-weight: 400;
+  font-size: 250px;
+  line-height: 147.5px;
+  letter-spacing: 0%;
+  color: #fff;
+  width: 20%; /* width for line breakig */
+  margin: 0;
+  padding: 0;
+}
+
+.backgroundVideo {
+  width: 100%;
+  max-width: 1440px;
+  max-height: 780px;
+  object-fit: fill;
+}
+
+.section__image img {
+  display: block;
+}
+
+.section__form {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 53px 124px;
+  box-sizing: border-box;
+}
+
+.section__form_form {
+  display: flex;
+  flex-flow: column;
+  gap: 37px;
+}
+
+.section__form_input {
+  width: 100%;
+  height: 90px;
+  max-width: 586px;
+  padding: 20px;
+  border: none;
+  margin-bottom: 20px;
+  font-size: 16px;
+  color: #e51b22;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.section__form_email-button {
+  display: flex;
+  flex-flow: row;
+}
+
+.section__form_button {
+  width: 100%;
+  height: 90px;
+  max-width: 606px;
+  background-color: #c8e51f;
+  color: #000;
+  border: none;
+  padding: 20px;
+  box-sizing: border-box;
+  font-family: Cera Pro;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 45.25px;
+  text-align: center;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+  display: flex;
+  flex-flow: row;
+  justify-content: center;
+  align-items: center;
+  padding: 0 0 0 56px;
+  gap: 30px;
+}
+
+.footer {
+  background-color: #a00d18;
+  color: #fff;
+  width: 100%;
+}
+
+.footer__container {
+  max-width: 1440px;
+  margin: 0 auto;
+  padding: 65px 132px 54px 125px;
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  box-sizing: border-box;
+}
+
+.footer__logo {
+  width: 80px;
+  height: 80px;
+  background-color: #e51b22;
+  border-radius: 50%;
+}
+
+.footer__menu {
+  display: flex;
+  flex-flow: row;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  gap: 30px;
+}
+
+.footer__menu_container {
+  margin: 32px 0 0 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+.footer__menu a {
+  color: #fff;
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.11px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+}
+
+.footer__submenu {
+  display: flex;
+  flex-flow: column;
+  list-style: none;
+  margin: 8px 0 0 0;
+  padding: 0;
+  gap: 6px;
+}
+
+.footer__submenu a {
+  color: #fff;
+  font-family: Cera Pro;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  text-decoration: none;
+  text-decoration-skip-ink: none;
+  text-transform: none;
+}
+
+.footer__copyright {
+  font-family: Cera Pro;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 24px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin: 40px 0 0 0;
+  padding: 0;
+}
+
+.footer__contacts {
+  display: flex;
+  flex-flow: column;
+  justify-items: flex-start;
+  align-items: flex-end;
+  gap: 20px;
+}
+
+.footer__phone {
+  font-family: Cera Pro;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60.34px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  margin: 0;
+}
+
+.footer__mail {
+  font-family: Cera Pro;
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 20.11px;
+  text-align: right;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  text-transform: uppercase;
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer__social {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-end;
+  align-items: flex-start;
+  gap: 24px;
+  margin: 35px 0 0 0;
+}
+
+.footer__social-icon {
+  width: 40px;
+  height: 40px;
+}
