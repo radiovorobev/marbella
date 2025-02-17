@@ -55,7 +55,7 @@
 }
 
 .header__cta-button {
-  width: 200px;
+  max-width: 200px;
   height: 40px;
   background-color: #c8e51f;
   color: #000;
@@ -63,13 +63,14 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 22.63px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   display: none;
   text-transform: uppercase;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  padding: 0 18px;
 }
 
 @supports (animation: fadeOut 0s ease-in-out) {
@@ -139,6 +140,10 @@
   text-decoration: none;
   text-decoration-skip-ink: none;
   text-transform: uppercase;
+}
+
+.header__menu a:hover {
+  color: #a00d18;
 }
 
 .header__langButton {
@@ -240,6 +245,7 @@ main {
   align-items: flex-start;
   background-color: #f2f2f7;
   margin-bottom: 20px;
+  cursor: pointer;
 }
 
 .section__news_article:nth-child(odd) {
