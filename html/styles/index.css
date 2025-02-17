@@ -146,6 +146,10 @@
   color: #a00d18;
 }
 
+.header__lang {
+  position: relative;
+}
+
 .header__langButton {
   font-family: 'Cera Pro', sans-serif;
   display: flex;
@@ -156,12 +160,53 @@
   height: 40px;
   border-radius: 8px;
   border: 2px solid #fff;
-  font-family: Cera Pro;
   font-size: 18px;
   font-weight: 700;
   line-height: 22.63px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  cursor: pointer;
+}
+
+.header__lang:hover .header__langButton {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #a00d18;
+  color: #a00d18;
+}
+
+.header__langMenu {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 40px;
+  background: #e51b22;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 2px solid #a00d18;
+  border-top: none;
+  margin-top: -2px; /* компенсируем border кнопки */
+  overflow: hidden;
+  display: none;
+  padding-bottom: 8px;
+}
+
+.header__lang:hover .header__langMenu {
+  display: block;
+}
+
+.header__langOption {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.header__langOption:hover {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 main {
@@ -379,7 +424,17 @@ main {
 
 .section__form_form {
   display: flex;
+  flex-flow: row;
+  gap: 20px;
+}
+
+.section__form_column {
+  display: flex;
   flex-flow: column;
+  max-width: 586px;
+  width: 100%;
+  align-items: flex-start;
+  justify-content: flex-start;
   gap: 37px;
 }
 
@@ -391,14 +446,14 @@ main {
   border: none;
   margin-bottom: 20px;
   font-size: 16px;
-  color: #e51b22;
+  color: #000;
   margin: 0;
   box-sizing: border-box;
 }
 
-.section__form_email-button {
-  display: flex;
-  flex-flow: row;
+.section__form_textarea {
+  height: 217px;
+  resize: none;
 }
 
 .section__form_button {
@@ -424,6 +479,10 @@ main {
   align-items: center;
   padding: 0 0 0 56px;
   gap: 30px;
+}
+
+.section__form_button:hover {
+  color: #e51b22;
 }
 
 .section__news {

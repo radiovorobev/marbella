@@ -30,6 +30,8 @@
   align-items: center;
   max-width: 278px;
   gap: 18px;
+  color: #fff;
+  text-decoration: none;
 }
 
 .header__logo {
@@ -48,10 +50,12 @@
   margin: 0;
   text-transform: uppercase;
   transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
+  color: #fff !important; /* Добавляем !important для гарантии */
+  text-decoration: none !important; /* Добавляем !important для гарантии */
 }
 
 .header__cta-button {
-  width: 200px;
+  max-width: 200px;
   height: 40px;
   background-color: #c8e51f;
   color: #000;
@@ -59,13 +63,14 @@
   font-weight: 700;
   font-size: 18px;
   line-height: 22.63px;
-  letter-spacing: 0%;
+  letter-spacing: 0;
   text-align: center;
   display: none;
   text-transform: uppercase;
   border: none;
   border-radius: 8px;
   cursor: pointer;
+  padding: 0 18px;
 }
 
 @supports (animation: fadeOut 0s ease-in-out) {
@@ -137,6 +142,14 @@
   text-transform: uppercase;
 }
 
+.header__menu a:hover {
+  color: #a00d18;
+}
+
+.header__lang {
+  position: relative;
+}
+
 .header__langButton {
   font-family: 'Cera Pro', sans-serif;
   display: flex;
@@ -147,13 +160,55 @@
   height: 40px;
   border-radius: 8px;
   border: 2px solid #fff;
-  font-family: Cera Pro;
   font-size: 18px;
   font-weight: 700;
   line-height: 22.63px;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
+  cursor: pointer;
 }
+
+.header__lang:hover .header__langButton {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+  border-color: #a00d18;
+  color: #a00d18;
+}
+
+.header__langMenu {
+  position: absolute;
+  top: 80%;
+  left: 0;
+  width: 40px;
+  background: #e51b22;
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
+  border: 2px solid #a00d18;
+  border-top: none;
+  margin-top: -2px; /* компенсируем border кнопки */
+  overflow: hidden;
+  display: none;
+  padding-bottom: 8px;
+}
+
+.header__lang:hover .header__langMenu {
+  display: block;
+}
+
+.header__langOption {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  line-height: 24px;
+  text-align: center;
+  cursor: pointer;
+  color: #fff;
+}
+
+.header__langOption:hover {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 
 main {
   background-color: #f2f2f7;

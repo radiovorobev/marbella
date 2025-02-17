@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>La Academia – Marbella International Football Academy</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <link rel="stylesheet" href="./styles/news.css">
+    <!--
+    <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
+    -->
+</head>
+<body>
+  <header class="header">
+    <div class="header__container">
+      <a href="https://academymarbella.com/html" alt="Marbella International Football Academy" class="header__logo_container">
+        <img src="./images/logo.svg" alt="Marbella International Football Academy" class="header__logo">
+        <h1 class="header__logo_text">Marbella International Football Academy</h1>
+      </a>
+      <nav class="header__menu_container">
+        <ul class="header__menu">
+          <li><a href="#">About</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="#">Our Coaches</a></li>
+          <!--
+          <li><a href="#">Venues</a></li>
+          -->
+          <li><a href="#">Programmes</a></li>
+          <li><a href="#">Training Camps</a></li>
+          <!--
+          <li><a href="#">Media</a></li>
+          -->
+          <li><a href="#">Contacts</a></li>
+        </ul>
+      </nav>
+      <div class="header__cta-button">Contact Us</div>
+      <div class="header__lang">
+        <div class="header__langButton">EN</div>
+        <div class="header__langMenu">
+            <div class="header__langOption">ES</div>
+            <div class="header__langOption">RU</div>
+        </div>
+    </div>
+    </div>
+  </header>
+  <main>
+    <section class="section__image">
+      <video autoplay muted loop playsinline poster="../images/backgroundPoster.jpg" class="backgroundVideo">
+        <source src="../video/background.mp4" type="video/mp4">
+    </video>
+    <h2 class="section__image_text">Latest News</h2>
+    </section>
+
+  </main>
+  <footer class="footer">
+    <div class="footer__container">
+      <div>
+        <div class="header__logo_container">
+          <img src="./images/logo.svg" alt="Marbella International Football Academy" class="footer__logo">
+          <h1 class="header__logo_text">Marbella International Football Academy</h1>
+        </div>
+        <menu class="footer__menu_container">
+          <ul class="footer__menu">
+            <li>
+              <a href="#">About</a>
+              <ul class="footer__submenu">
+                <li><a href="#">Who we are?</a></li>
+                <li><a href="#">Management</a></li>
+                <li><a href="#">About Marbella</a></li>
+                <li><a href="#">Legal</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Coaching Staff</a>
+              <ul class="footer__submenu">
+                <li><a href="#">License</a></li>
+                <li><a href="#">Experience</a></li>
+                <li><a href="#">Photo</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Venues</a>
+              <ul class="footer__submenu">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Description</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Programmes</a>
+              <ul class="footer__submenu">
+                <li><a href="#">Gallery</a></li>
+                <li><a href="#">Description</a></li>
+              </ul>
+            </li>
+            <li>
+              <a href="#">Media</a>
+              <ul  class="footer__submenu">
+                <li><a href="#">Video</a></li>
+                <li><a href="#">Photo</a></li>
+              </ul>
+            </li>
+            <li><a href="#">Contact Us</a></li>
+          </ul>
+        </menu>
+        <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
+      </div>
+      <div class="footer__contacts">
+        <p class="footer__phone">+34 663 13 12 78</p>
+        <a class="footer__mail" href="info@academymarbella.com">info@academymarbella.com</a>
+        <div class="footer__social">
+          <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
+          <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+        </div>
+      </div>
+    </div>
+  </footer>
+</body>
+<script>
+  document.addEventListener('scroll', function() {
+  const headerContainer = document.querySelector('.header__container');
+  if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
+    headerContainer.classList.add('scrolled');
+  } else {
+    headerContainer.classList.remove('scrolled');
+  }
+});
+</script>
+</html>
