@@ -479,6 +479,7 @@ main {
   align-items: center;
   padding: 0 0 0 56px;
   gap: 30px;
+  cursor: pointer;
 }
 
 .section__form_button:hover {

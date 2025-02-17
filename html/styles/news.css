@@ -244,6 +244,7 @@ main {
   width: 20%; /* width for line breakig */
   margin: 0;
   padding: 0;
+  text-transform: uppercase;
 }
 
 .backgroundVideo {
