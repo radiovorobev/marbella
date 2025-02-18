@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>La Academia – Marbella International Football Academy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="./styles/news.css">
+    <link rel="stylesheet" href="./styles/contacts.css">
     <!--
     <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
     -->
@@ -20,7 +20,7 @@
         <ul class="header__menu">
           <li><a href="#">About</a></li>
           <li><a href="./news.html">News</a></li>
-          <li><a href="#">Our Coaches</a></li>
+          <li><a href="./our-coaches.html">Our Coaches</a></li>
           <!--
           <li><a href="#">Venues</a></li>
           -->
@@ -29,7 +29,7 @@
           <!--
           <li><a href="#">Media</a></li>
           -->
-          <li><a href="#">Contacts</a></li>
+          <li><a href="./contacts.html">Contacts</a></li>
         </ul>
       </nav>
       <div class="header__cta-button">Contact Us</div>
@@ -47,9 +47,57 @@
       <video autoplay muted loop playsinline poster="../images/backgroundPoster.jpg" class="backgroundVideo">
         <source src="../video/background.mp4" type="video/mp4">
     </video>
-    <h2 class="section__image_text">Latest News</h2>
     </section>
-
+    <section class="section__contacts">
+      <div class="section__contacts_container">
+        <div class="section__contacts_column">
+          <p class="section__contacts_text">
+            Marbella International Football Academy is strategically located on the stunning Costa del Sol, near Puerto Banús, offering an exceptional environment for young footballers aspiring to professional careers. 
+          </p>
+          <p class="section__contacts_text">
+            The academy features two premium natural grass pitches that meet the highest standards, providing players with optimal training conditions in a comfortable and professional setting.
+          </p>
+       </div>
+       <div class="section__contacts_column">
+        <h3>Primary Office</h3>
+        <p class="section__contacts_adress">
+          Calle Vázquez Clavel, 23, 29603, Marbella, Málaga
+        </p>
+        <p class="section__contacts_tel">+34 663 131 278</p>
+       </div>
+      </div>
+    </section>
+    <section class="section__form">
+      <form class="section__form_form" action="#" method="POST">
+        <div class="section__form_column">
+          <input class="section__form_input" type="text" placeholder="Gabriel Velasques de Telepope" name="name" required>
+          <input class="section__form_input" type="tel" placeholder="+12 345 6789" name="phone" required>
+          <input class="section__form_input" type="email" placeholder="gabidepope@yahoo.com" name="email" required>
+        </div>
+        <div class="section__form_column">
+          <textarea class="section__form_input section__form_textarea" placeholder="Write down anything you would like to know" name="text" required></textarea>
+          <button class="section__form_button" type="submit">
+            ASK A QUESTION 
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="54" height="54" rx="27" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 28H43" stroke="currentColor" stroke-width="2"/>
+                <path d="M30 15L43 28L30 41" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        </div>
+    </form>
+    </section>
+    <section class="section__map">
+      <iframe 
+        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3206.962286437226!2d-4.888955323800078!3d36.510430379910745!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd7327d936739461%3A0x5f6f038908b2b421!2sC.%20V%C3%A1zquez%20Clavel%2C%2023%2C%2029603%20Marbella%2C%20M%C3%A1laga%2C%20Spain!5e0!3m2!1sen!2sus!4v1708262429039!5m2!1sen!2sus" 
+        width="100%" 
+        height="750" 
+        style="border:0;" 
+        allowfullscreen="" 
+        loading="lazy" 
+        referrerpolicy="no-referrer-when-downgrade">
+      </iframe>
+    </section>
   </main>
   <footer class="footer">
     <div class="footer__container">
@@ -62,35 +110,20 @@
           <ul class="footer__menu">
             <li>
               <a href="#">About</a>
+              <!--
               <ul class="footer__submenu">
                 <li><a href="#">Who we are?</a></li>
                 <li><a href="#">Management</a></li>
                 <li><a href="#">About Marbella</a></li>
                 <li><a href="#">Legal</a></li>
               </ul>
+              -->
             </li>
-            <li>
-              <a href="#">Coaching Staff</a>
-              <ul class="footer__submenu">
-                <li><a href="#">License</a></li>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Photo</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Venues</a>
-              <ul class="footer__submenu">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Description</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Programmes</a>
-              <ul class="footer__submenu">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Description</a></li>
-              </ul>
-            </li>
+            <li><a href="./news.html">News</a></li>
+            <li><a href="./our-coaches.html">Our Coaches</a></li>
+            <li><a href="#">Programmes</a></li>
+            <li><a href="#">Training Camps</a></li>
+            <!--
             <li>
               <a href="#">Media</a>
               <ul  class="footer__submenu">
@@ -98,7 +131,8 @@
                 <li><a href="#">Photo</a></li>
               </ul>
             </li>
-            <li><a href="#">Contact Us</a></li>
+            -->
+            <li><a href="./contacts.html">Contacts</a></li>
           </ul>
         </menu>
         <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
@@ -106,9 +140,13 @@
       <div class="footer__contacts">
         <p class="footer__phone">+34 663 13 12 78</p>
         <a class="footer__mail" href="info@academymarbella.com">info@academymarbella.com</a>
-        <div class="footer__social">
-          <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
-          <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+        <d class="footer__social">
+          <a href="https://www.instagram.com/academymarbella" target="_blank">
+            <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
+          </a>
+          <a href="https://www.facebook.com/academymarbella" target="_blank">
+            <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+          </a>
         </div>
       </div>
     </div>
