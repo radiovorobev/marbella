@@ -292,12 +292,21 @@ main {
 }
 
 .section__text {
+  width: 100%;
+  margin: 0 auto;
+  background-color: #fff;
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.section__text_container {
   display: flex;
   flex-flow: column;
   justify-content: center;
   align-items: center;
   max-width: 1440px;
-  margin: 0 auto;
   padding: 120px 169px;
   box-sizing: border-box;
   gap: 50px;
