@@ -73,6 +73,10 @@
   padding: 0 18px;
 }
 
+.header__cta-button:hover {
+  color: rgba(229, 27, 34, 1);
+}
+
 @supports (animation: fadeOut 0s ease-in-out) {
   .header:has(.header__container.scrolled) .header__logo_text {
     animation: fadeOut 0s forwards;
@@ -422,6 +426,14 @@ main {
 
 .section__news_button-icon {
   transform: rotate(90deg);
+}
+
+.section__news_button:hover {
+  color: #a00d18;
+}
+
+.section__news_button:hover img {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(82%) saturate(4400%) hue-rotate(351deg) brightness(91%) contrast(96%);
 }
 
 .footer {
