@@ -296,7 +296,7 @@ main {
 .section__about_block {
   display: flex;
   flex-flow: row;
-  justify-content: space-aroung;
+  justify-content: space-around;
 }
 
 .section__about_textBlock {
