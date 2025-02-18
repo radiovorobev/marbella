@@ -730,6 +730,10 @@ main {
   text-transform: uppercase;
 }
 
+.footer__menu a:hover {
+  color: rgba(255, 255, 255, 0.35)
+}
+
 .footer__submenu {
   display: flex;
   flex-flow: column;
@@ -780,6 +784,11 @@ main {
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
   margin: 0;
+  cursor: pointer;
+}
+
+.footer__phone:hover {
+  color: rgba(255, 255, 255, 0.35);
 }
 
 .footer__mail {
@@ -795,6 +804,10 @@ main {
   text-decoration: none;
 }
 
+.footer__mail:hover {
+  color: rgba(255, 255, 255, 0.35);
+}
+
 .footer__social {
   display: flex;
   flex-flow: row;
@@ -808,3 +821,8 @@ main {
   width: 40px;
   height: 40px;
 }
+
+.footer__social-icon:hover {
+  filter: opacity(0.35);
+}
+
