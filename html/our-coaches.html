@@ -20,7 +20,7 @@
         <ul class="header__menu">
           <li><a href="#">About</a></li>
           <li><a href="./news.html">News</a></li>
-          <li><a href="#">Our Coaches</a></li>
+          <li><a href="./our-coaches.html">Our Coaches</a></li>
           <!--
           <li><a href="#">Venues</a></li>
           -->
@@ -29,7 +29,7 @@
           <!--
           <li><a href="#">Media</a></li>
           -->
-          <li><a href="#">Contacts</a></li>
+          <li><a href="./contacts.html">Contacts</a></li>
         </ul>
       </nav>
       <div class="header__cta-button">Contact Us</div>
@@ -49,16 +49,30 @@
     </video>
     <h2 class="section__image_text">Passion Growth Excellence</h2>
     </section>
+    <section class="section__text">
+      <div class="section__text_image-bacground"></div>
+      <p>
+        Our academy is led by a team of highly qualified and certified coaches with vast experience in both youth development and professional football. Their expertise ensures that every player receives top-level training, strategic guidance, and the motivation to excel.
+      </p>
+      <div class="section__text_image-bacground"></div>
+    </section>
     <section class="section__form">
       <form class="section__form_form" action="#" method="POST">
-        <input class="section__form_input" type="text" placeholder="Gabriel Velasques de Telepope" name="name" required>
-        <input class="section__form_input" type="tel" placeholder="+12 345 6789" name="phone" required>
-        <div class="section__form_email-button">
-            <input class="section__form_input" type="email" placeholder="gabidepope@yahoo.com" name="email" required>
-            <button class="section__form_button" type="submit">
-                ASK A QUESTION 
-                <img src="./images/icon_arrow_black.svg" class="section__button">
-            </button>
+        <div class="section__form_column">
+          <input class="section__form_input" type="text" placeholder="Gabriel Velasques de Telepope" name="name" required>
+          <input class="section__form_input" type="tel" placeholder="+12 345 6789" name="phone" required>
+          <input class="section__form_input" type="email" placeholder="gabidepope@yahoo.com" name="email" required>
+        </div>
+        <div class="section__form_column">
+          <textarea class="section__form_input section__form_textarea" placeholder="Write down anything you would like to know" name="text" required></textarea>
+          <button class="section__form_button" type="submit">
+            ASK A QUESTION 
+            <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="54" height="54" rx="27" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 28H43" stroke="currentColor" stroke-width="2"/>
+                <path d="M30 15L43 28L30 41" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
         </div>
     </form>
     </section>
@@ -74,35 +88,20 @@
           <ul class="footer__menu">
             <li>
               <a href="#">About</a>
+              <!--
               <ul class="footer__submenu">
                 <li><a href="#">Who we are?</a></li>
                 <li><a href="#">Management</a></li>
                 <li><a href="#">About Marbella</a></li>
                 <li><a href="#">Legal</a></li>
               </ul>
+              -->
             </li>
-            <li>
-              <a href="#">Coaching Staff</a>
-              <ul class="footer__submenu">
-                <li><a href="#">License</a></li>
-                <li><a href="#">Experience</a></li>
-                <li><a href="#">Photo</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Venues</a>
-              <ul class="footer__submenu">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Description</a></li>
-              </ul>
-            </li>
-            <li>
-              <a href="#">Programmes</a>
-              <ul class="footer__submenu">
-                <li><a href="#">Gallery</a></li>
-                <li><a href="#">Description</a></li>
-              </ul>
-            </li>
+            <li><a href="./news.html">News</a></li>
+            <li><a href="./our-coaches.html">Our Coaches</a></li>
+            <li><a href="#">Programmes</a></li>
+            <li><a href="#">Training Camps</a></li>
+            <!--
             <li>
               <a href="#">Media</a>
               <ul  class="footer__submenu">
@@ -110,7 +109,8 @@
                 <li><a href="#">Photo</a></li>
               </ul>
             </li>
-            <li><a href="#">Contact Us</a></li>
+            -->
+            <li><a href="./contacts.html">Contacts</a></li>
           </ul>
         </menu>
         <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
@@ -118,9 +118,13 @@
       <div class="footer__contacts">
         <p class="footer__phone">+34 663 13 12 78</p>
         <a class="footer__mail" href="info@academymarbella.com">info@academymarbella.com</a>
-        <div class="footer__social">
-          <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
-          <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+        <d class="footer__social">
+          <a href="https://www.instagram.com/academymarbella" target="_blank">
+            <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
+          </a>
+          <a href="https://www.facebook.com/academymarbella" target="_blank">
+            <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+          </a>
         </div>
       </div>
     </div>
