@@ -216,43 +216,6 @@
 main {
   background-color: #f2f2f7;
 }
- 
-.section__header {
-  background-color: #e51b22;
-  color: #fff;
-  width: 100%;
-  position: relative;
-  min-height: 200px;
-  width: 100%;
-  max-width: 1192px;
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0 70px 27px 0;
-  box-sizing: border-box;
-}
-
-.section__header h2 {
-  font-family: Jomhuria;
-  font-size: 250px;
-  font-weight: 400;
-  text-align: left;
-  text-transform: uppercase;
-  margin: 0;
-  position: absolute;
-  bottom: -118px;
-  left: -6px;
-}
-
-.section__header_social-icon {
-  width: 56px;
-  height: 56px;
-}
-
-.section__header_social-icon:hover {
-  filter: brightness(0) saturate(100%) invert(12%) sepia(82%) saturate(4400%) hue-rotate(351deg) brightness(91%) contrast(96%);
-}
 
 .section__image {
   max-width: 1440px;
@@ -268,83 +231,6 @@ main {
 
 .section__image img {
   display: block;
-}
-
-.section__about {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 90px 124px;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column;
-}
-
-.section__about_header {
-  font-family: 'Cera Pro', sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 60.34px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  max-width: 605px;
-  text-transform: uppercase;
-  margin: 0 0 40px 0;
-}
-
-.section__about_block {
-  display: flex;
-  flex-flow: row;
-  justify-content: space-around;
-}
-
-.section__about_textBlock {
-  display: flex;
-  flex-flow: column;
-  width: 50%;
-  padding: 0 20px 0 0;
-}
-
-.section__about_textBlock:nth-child(2n) {
-  padding: 64px 0 0 60px;
-}
-
-.section__about_textBlock h3 {
-  font-family: Cera Pro;
-  font-size: 32px;
-  font-weight: 700;
-  line-height: 40.22px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #e51b22;
-  margin: 0;
-  max-width: 370px;
-  text-transform: uppercase;
-}
-
-.section__about_text {
-  font-family: Cera Pro;
-  font-size: 21px;
-  font-weight: 400;
-  line-height: 26.4px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  max-width: 90%;
-}
-
-.section__about_number {
-  font-family: Cera Pro;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 80.45px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #e51b22;
-  margin: 0;
 }
 
 .section__text {
@@ -387,6 +273,27 @@ main {
   margin: 0;
 }
 
+.two-columns-text {
+    column-count: 2;
+    column-gap: 20px; /* расстояние между колонками */
+}
+
+/* Чтобы параграфы не разрывались между колонками */
+.two-columns-text p {
+    break-inside: avoid-column;
+    margin: 0;
+    font-family: Cera Pro;
+    font-weight: 400;
+    font-size: 21px;
+    line-height: 26.4px;
+    text-align: left;
+}
+
+/* Добавляем отступ между параграфами */
+.two-columns-text p + p {
+    margin-top: 20px;
+}
+ 
 .section__form {
   max-width: 1440px;
   margin: 0 auto;
