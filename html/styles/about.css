@@ -250,38 +250,13 @@ main {
   height: 56px;
 }
 
+.section__header_social-icon:hover {
+  filter: brightness(0) saturate(100%) invert(12%) sepia(82%) saturate(4400%) hue-rotate(351deg) brightness(91%) contrast(96%);
+}
+
 .section__image {
-  display: flex;
   max-width: 1440px;
   margin: 0 auto;
-  position: relative;
-}
-
-.section__image::after {
-  width: 100%;
-  height: 100%;
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  background-color: rgba(0, 0, 0, 0.2);
-}
-
-.section__image_text {
-  position: absolute;
-  bottom: 90px;
-  left: 125px;
-  z-index: 1;
-  font-family: Jomhuria;
-  font-weight: 400;
-  font-size: 250px;
-  line-height: 147.5px;
-  letter-spacing: 0%;
-  color: #fff;
-  width: 20%; /* width for line breakig */
-  margin: 0;
-  padding: 0;
-  text-transform: uppercase;
 }
 
 .backgroundVideo {
@@ -293,6 +268,83 @@ main {
 
 .section__image img {
   display: block;
+}
+
+.section__about {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 90px 124px;
+  box-sizing: border-box;
+  display: flex;
+  flex-flow: column;
+}
+
+.section__about_header {
+  font-family: 'Cera Pro', sans-serif;
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 60.34px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  max-width: 605px;
+  text-transform: uppercase;
+  margin: 0 0 40px 0;
+}
+
+.section__about_block {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-around;
+}
+
+.section__about_textBlock {
+  display: flex;
+  flex-flow: column;
+  width: 50%;
+  padding: 0 20px 0 0;
+}
+
+.section__about_textBlock:nth-child(2n) {
+  padding: 64px 0 0 60px;
+}
+
+.section__about_textBlock h3 {
+  font-family: Cera Pro;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 40.22px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #e51b22;
+  margin: 0;
+  max-width: 370px;
+  text-transform: uppercase;
+}
+
+.section__about_text {
+  font-family: Cera Pro;
+  font-size: 21px;
+  font-weight: 400;
+  line-height: 26.4px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  max-width: 90%;
+}
+
+.section__about_number {
+  font-family: Cera Pro;
+  font-size: 64px;
+  font-weight: 700;
+  line-height: 80.45px;
+  text-align: left;
+  text-underline-position: from-font;
+  text-decoration-skip-ink: none;
+  color: #e51b22;
+  margin: 0;
 }
 
 .section__text {
@@ -335,99 +387,12 @@ main {
   margin: 0;
 }
 
-.section__coaches {
-  max-width: 1440px;
-  width: 100%;
-  margin: 0 auto;
-  padding: 120px 124px;
-  box-sizing: border-box;
-  display: flex;
-  flex-flow: column;
-}
-
-.section__coaches_header {
-  font-family: 'Cera Pro', sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 60.34px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  max-width: 605px;
-  text-transform: uppercase;
-  margin: 0 0 40px 0;
-}
-
-.section__coaches_cards {
-  display: flex;
-  flex-flow: row;
-  gap: 20px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%
-}
-
-.section__coaches_card {
-  width: 384px;
-  height: 800px;
-  background-color: #fff;
-}
-
-.section__coach_card-textBlock {
-  width: 100%;
-  height: 100%;
-  padding: 30px 20px;
-  box-sizing: border-box;
-}
-
-.section__coach_card-name {
-  font-family: Cera Pro;
-  font-weight: 700;
-  font-size: 24px;
-  line-height: 30.17px;
-  letter-spacing: 0%;
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.section__coach_card-role {
-  font-family: Cera Pro;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17.6px;
-  letter-spacing: 0%;
-  color: rgba(160, 13, 24, 1);
-  text-transform: uppercase;
-  margin: 0;
-}
-
-.section__coach_card-license {
-  font-family: Cera Pro;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17.6px;
-  letter-spacing: 0%;
-  color: rgba(160, 13, 24, 1);
-  text-transform: uppercase;
-  border-bottom: 1px solid #000;
-  margin: 0 0 20px 0;
-  padding: 0 0 14px 0;
-}
-
-.section__coach_card-text {
-  font-family: Cera Pro;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 20.11px;
-  letter-spacing: 0%;
-}
 
 .section__form {
   max-width: 1440px;
   margin: 0 auto;
   padding: 53px 124px;
   box-sizing: border-box;
-  border-top: 3px solid #fff;
 }
 
 .section__form_form {
