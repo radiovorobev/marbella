@@ -220,39 +220,6 @@
 main {
   background-color: #f2f2f7;
 }
- 
-.section__header {
-  background-color: #e51b22;
-  color: #fff;
-  width: 100%;
-  position: relative;
-  min-height: 200px;
-  width: 100%;
-  max-width: 1192px;
-  display: flex;
-  flex-flow: row;
-  justify-content: flex-end;
-  align-items: flex-end;
-  padding: 0 70px 27px 0;
-  box-sizing: border-box;
-}
-
-.section__header h2 {
-  font-family: Jomhuria;
-  font-size: 250px;
-  font-weight: 400;
-  text-align: left;
-  text-transform: uppercase;
-  margin: 0;
-  position: absolute;
-  bottom: -118px;
-  left: -6px;
-}
-
-.section__header_social-icon {
-  width: 56px;
-  height: 56px;
-}
 
 .section__image {
   display: flex;
@@ -271,6 +238,17 @@ main {
   background-color: rgba(0, 0, 0, 0.2);
 }
 
+.backgroundVideo {
+  width: 100%;
+  max-width: 1440px;
+  max-height: 780px;
+  object-fit: fill;
+}
+
+.section__image img {
+  display: block;
+}
+
 .section__image_text {
   position: absolute;
   bottom: 90px;
@@ -286,17 +264,6 @@ main {
   margin: 0;
   padding: 0;
   text-transform: uppercase;
-}
-
-.backgroundVideo {
-  width: 100%;
-  max-width: 1440px;
-  max-height: 780px;
-  object-fit: fill;
-}
-
-.section__image img {
-  display: block;
 }
 
 .section__text {
@@ -339,92 +306,104 @@ main {
   margin: 0;
 }
 
-.section__coaches {
-  max-width: 1440px;
+.section__programms {
   width: 100%;
   margin: 0 auto;
-  padding: 120px 124px;
-  box-sizing: border-box;
   display: flex;
   flex-flow: column;
+  justify-content: center;
+  align-items: center;
 }
 
-.section__coaches_header {
-  font-family: 'Cera Pro', sans-serif;
-  font-size: 48px;
-  font-weight: 700;
-  line-height: 60.34px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  max-width: 605px;
-  text-transform: uppercase;
-  margin: 0 0 40px 0;
+.section__programms_programm {
+  width: 100%;
 }
 
-.section__coaches_cards {
+.section__programms_programm_container {
+  max-width: 1440px;
   display: flex;
   flex-flow: row;
-  gap: 20px;
-  justify-content: flex-start;
-  align-items: flex-start;
-  width: 100%;
-  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: align-start;
+  gap: 0;
+  min-height: 642px;
+  margin: 0 auto;
 }
 
-.section__coaches_card {
-  width: 384px;
-  height: 800px;
+.section__programms_programm:nth-child(even) {
   background-color: #fff;
 }
 
-.section__coach_card-textBlock {
-  width: 100%;
-  height: 100%;
-  padding: 30px 20px;
-  box-sizing: border-box;
+.section__programms_programm_description {
+  padding: 120px 0 0 125px;
+  display: flex;
+  flex-flow: column;
+  justify-content: flex-start;
+  align-items: flex-start;
 }
 
-.section__coach_card-name {
+.section__programms_programm_title {
   font-family: Cera Pro;
   font-weight: 700;
-  font-size: 24px;
-  line-height: 30.17px;
+  font-size: 48px;
+  line-height: 60.34px;
   letter-spacing: 0%;
+  color: #000;
   text-transform: uppercase;
   margin: 0;
 }
 
-.section__coach_card-role {
-  font-family: Cera Pro;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17.6px;
-  letter-spacing: 0%;
-  color: rgba(160, 13, 24, 1);
-  text-transform: uppercase;
-  margin: 0;
+.section__programms_programm_specs {
+  display: flex;
+  flex-flow: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  width: 100%;
 }
 
-.section__coach_card-license {
+.section__programms_programm_specs_level {
   font-family: Cera Pro;
-  font-weight: 500;
-  font-size: 14px;
-  line-height: 17.6px;
+  font-weight: 700;
+  font-size: 48px;
+  line-height: 60.34px;
   letter-spacing: 0%;
-  color: rgba(160, 13, 24, 1);
+  color: rgba(229, 27, 34, 1);
   text-transform: uppercase;
-  border-bottom: 1px solid #000;
-  margin: 0 0 20px 0;
-  padding: 0 0 14px 0;
 }
 
-.section__coach_card-text {
+.section__programms_programm_specs_age {
   font-family: Cera Pro;
   font-weight: 400;
-  font-size: 16px;
-  line-height: 20.11px;
+  font-size: 32px;
+  line-height: 40.22px;
   letter-spacing: 0%;
+  text-align: right;  
+  color: rgba(229, 27, 34, 1);
+}
+
+.section__programms_programm_text {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  letter-spacing: 0%;
+  margin: 40px 0 0 0;
+  padding: 40px 0 0 0;
+  border-top: 2px solid #000;
+}
+
+.section__programms_programm ul {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  letter-spacing: 0%;
+}
+
+.section__programms_programm_image {
+  width: 550px;
+  height: 600px;
+  align-self: flex-end;
 }
 
 .section__form {
@@ -498,7 +477,7 @@ main {
 .section__form_button:hover {
   color: #e51b22;
 }
-
+ 
 .footer {
   background-color: #a00d18;
   color: #fff;
