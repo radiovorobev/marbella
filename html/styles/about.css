@@ -339,8 +339,12 @@ main {
   padding: 0 20px 0 0;
 }
 
-.section__about_textBlock:nth-child(2n) {
-  padding: 64px 0 0 60px;
+.section__about_block:nth-of-type(2) .section__about_textBlock {
+  padding: 20px 0 0 20px;
+}
+
+.section__about_block:nth-of-type(3) .section__about_textBlock {
+  padding: 20px 0 0 10px;
 }
 
 .section__about_textBlock h3 {
@@ -353,7 +357,6 @@ main {
   text-decoration-skip-ink: none;
   color: #e51b22;
   margin: 0;
-  max-width: 370px;
   text-transform: uppercase;
 }
 
@@ -365,19 +368,6 @@ main {
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  max-width: 90%;
-}
-
-.section__about_number {
-  font-family: Cera Pro;
-  font-size: 64px;
-  font-weight: 700;
-  line-height: 80.45px;
-  text-align: left;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  color: #e51b22;
-  margin: 0;
 }
 
 .section__text {
