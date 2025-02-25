@@ -332,6 +332,11 @@ main {
   justify-content: space-around;
 }
 
+.section__about_block img {
+  width: 596px;
+  height: 400px;
+}
+
 .section__about_textBlock {
   display: flex;
   flex-flow: column;
@@ -365,7 +370,7 @@ main {
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  max-width: 70%;
+  max-width: 80%;
 }
 
 .section__about_number {
