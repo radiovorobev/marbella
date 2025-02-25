@@ -822,6 +822,8 @@ main {
   text-decoration-skip-ink: none;
   margin: 0;
   cursor: pointer;
+  color: #fff;
+  text-decoration: none;
 }
 
 .footer__phone:hover {
