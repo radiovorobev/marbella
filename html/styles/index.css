@@ -321,7 +321,7 @@ main {
   text-align: left;
   text-underline-position: from-font;
   text-decoration-skip-ink: none;
-  max-width: 605px;
+  max-width: 80%;
   text-transform: uppercase;
   margin: 0 0 40px 0;
 }
