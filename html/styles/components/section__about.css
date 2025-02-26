@@ -110,5 +110,23 @@
     flex-flow: column;
     width: 100%;
     padding: 0 20px;
+    box-sizing: border-box;
+  }
+
+  .section__about_number {
+    font-size: 48px;
+    line-height: 60.34px;
+  }
+
+  .section__about_textBlock h3 {
+    font-size: 20px;
+    line-height: 25.14px;
+    max-width: 100%;
+  }
+
+  .section__about_text {
+    font-size: 16px;
+    line-height: 20.11px;
+    max-width: 100%;
   }
 }
