@@ -50,6 +50,11 @@
     bottom: 30px;
     left: 20px;
   }
+
+  .backgroundVideo {
+    height: 670px;
+    object-fit: cover;
+  }
 }
 
 /*
