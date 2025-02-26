@@ -221,6 +221,67 @@ main {
   background-color: #f2f2f7;
 }
 
+.news-page__container {
+  width: 1440px;
+  margin: 0 auto;
+  padding: 150px 124px 0;
+  box-sizing: border-box;
+}
+
+.news__header {
+  display: flex;
+  flex-flow: row;
+  justify-content: flex-start;
+  align-items: flex-start;
+  width: 100%;
+  margin: 0 0 50px 0;
+}
+
+.news__header_backButton {
+  font-family: Cera Pro;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 20.11px;
+  letter-spacing: 0%;
+  color: #000;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 5px 0 0 0;
+}
+
+.news__header h1 {
+  font-family: Cera Pro;
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 40.22px;
+  letter-spacing: 0%;  
+  margin: 0 0 0 70px;
+  padding: 0;
+  width: 586px;
+  text-transform: uppercase;
+  flex-grow: 1;
+}
+
+.news__header_date {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 20.11px;
+  letter-spacing: 0%;
+  text-align: right;
+  align-self: flex-end;
+}
+
+.news__text {
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  letter-spacing: 0%;
+  padding: 0 0 50px 0;
+  box-sizing: border-box;
+}
+
 .footer {
   background-color: #a00d18;
   color: #fff;
