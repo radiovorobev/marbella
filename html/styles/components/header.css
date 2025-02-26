@@ -228,9 +228,19 @@
     display: none;
   }
 
+  .header__logo_container {
+    max-width: 188px;
+    gap: 9px;
+  }
+
   .header__logo {
     width: 50px;
     height: 50px;
+  }
+
+  .header__logo_text {
+    font-size: 10px;
+    line-height: 12.57px;
   }
   
   .header__lang {
