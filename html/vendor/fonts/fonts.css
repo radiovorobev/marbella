@@ -4,6 +4,13 @@
     font-weight: 400;
     src: url(./CeraPro-Regular.woff) format('woff');
   }
+
+  @font-face {
+    font-family: 'Cera Pro';
+    font-style: normal;
+    font-weight: 500;
+    src: url(./CeraPro-Medium.woff) format('woff');
+  }
   
   @font-face {
     font-family: 'Cera Pro';
