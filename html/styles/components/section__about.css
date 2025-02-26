@@ -1,4 +1,3 @@
-
 .section__about {
   max-width: 1440px;
   width: 100%;
@@ -98,6 +97,10 @@
   .section__about_block {
     flex-flow: column;
     justify-content: space-around;
+  }
+
+  .section__about_block:nth-of-type(odd) {
+    flex-flow: column-reverse;
   }
 
   .section__about_block img {
