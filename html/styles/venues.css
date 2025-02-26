@@ -307,25 +307,35 @@ main {
 }
 
 .two-columns-text {
-    column-count: 2;
-    column-gap: 20px; /* расстояние между колонками */
+  column-count: 2;
+  column-gap: 20px;
+  column-fill: balance; /* Равномерное заполнение колонок */
+  min-height: 200px; /* Заставляет Safari создавать вторую колонку */
 }
 
-/* Чтобы параграфы не разрывались между колонками */
 .two-columns-text p {
-    break-inside: avoid-column;
-    margin: 0;
-    font-family: Cera Pro;
-    font-weight: 400;
-    font-size: 21px;
-    line-height: 26.4px;
-    text-align: left;
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid-column; /* Предотвращает разрыв абзацев */
+  page-break-inside: avoid; /* Safari-фикс */
+  margin: 0 0 20px 0;
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  text-align: left;
 }
 
-/* Добавляем отступ между параграфами */
-.two-columns-text p + p {
-    margin-top: 20px;
+/* Убираем баг Safari с отступом во второй колонке */
+.two-columns-text p:first-child,
+.two-columns-text p:nth-child(2) {
+  margin-top: 0 !important;
 }
+
+.two-columns-text p:not(:first-child) {
+  padding-top: 0; /* Вместо margin-top */
+}
+
  
 .section__form {
   max-width: 1440px;
