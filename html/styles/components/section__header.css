@@ -4,7 +4,6 @@
   width: 100%;
   position: relative;
   min-height: 200px;
-  width: 100%;
   max-width: 1192px;
   display: flex;
   flex-flow: row;
@@ -36,8 +35,23 @@
 }
 
 @media screen and (max-width: 1439px) {
+  .section__header {
+    min-height: 0;
+    height: 80px;
+    padding: 0 20px 0 0;
+    align-items: center;
+    box-sizing: border-box;
+  }
+
   .section__header h2 {
-    font-size: 24px;
-    line-height: 30.17px;
+    font-size: 96px;
+    line-height: 96px;
+    bottom: -37px;
+    left: -1px;
+  }
+
+  .section__header_social-icon {
+    width: 40px;
+    height: 40px;
   }
 }
