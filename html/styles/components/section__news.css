@@ -62,6 +62,13 @@
   max-width: 788px;
 }
 
+.section__news_image {
+  width: 100%;
+  height: auto;
+  min-height: 384px;
+  object-fit: cover;
+}
+
 .section__news_news-header {
   font-family: Cera Pro;
   font-size: 24px;
@@ -191,4 +198,21 @@
     width: 100%;
     height: auto;
   }
+
+  .section__news_article:nth-child(1), .section__news_article:nth-child(4) {
+  max-width: 100%;
+  }
+  
+  .section__news_lead {
+    flex-flow: column;
+  }
+  
+  .section__news_news-text { 
+    display: none;
+  }
+
+  .section__news_article:nth-child(3),
+.section__news_article:nth-child(4) {
+  margin-bottom: 20px;
+}
 }
