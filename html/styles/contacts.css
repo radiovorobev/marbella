@@ -4,6 +4,7 @@
 @import url(./components/header.css);
 
 @import url(./components/section__image.css);
+@import url(./components/section__form.css);
 
 @import url(./components/footer.css);
 
@@ -84,77 +85,6 @@ main {
   line-height: 26.4px;
   letter-spacing: 0%;
   color: #000;
-}
-
-.section__form {
-  max-width: 1440px;
-  margin: 0 auto;
-  padding: 53px 124px;
-  box-sizing: border-box;
-}
-
-.section__form_form {
-  display: flex;
-  flex-flow: row;
-  gap: 20px;
-}
-
-.section__form_column {
-  display: flex;
-  flex-flow: column;
-  max-width: 586px;
-  width: 100%;
-  align-items: flex-start;
-  justify-content: flex-start;
-  gap: 37px;
-}
-
-.section__form_input {
-  width: 100%;
-  height: 90px;
-  max-width: 586px;
-  padding: 20px;
-  border: none;
-  margin-bottom: 20px;
-  font-size: 16px;
-  color: #000;
-  margin: 0;
-  box-sizing: border-box;
-}
-
-.section__form_textarea {
-  height: 217px;
-  resize: none;
-}
-
-.section__form_button {
-  width: 100%;
-  height: 90px;
-  max-width: 606px;
-  background-color: #c8e51f;
-  color: #000;
-  border: none;
-  padding: 20px;
-  box-sizing: border-box;
-  font-family: Cera Pro;
-  font-size: 36px;
-  font-weight: 700;
-  line-height: 45.25px;
-  text-align: center;
-  text-underline-position: from-font;
-  text-decoration-skip-ink: none;
-  text-transform: uppercase;
-  display: flex;
-  flex-flow: row;
-  justify-content: center;
-  align-items: center;
-  padding: 0 0 0 56px;
-  gap: 30px;
-  cursor: pointer;
-}
-
-.section__form_button:hover {
-  color: #e51b22;
 }
 
 .section__map {
