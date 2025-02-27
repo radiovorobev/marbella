@@ -192,5 +192,10 @@
   .footer__address {
     text-align: left;
   }
+
+  .footer__phone {
+    font-size: 36px;
+    line-height: 45.25px;
+  }
 }
 

@@ -160,7 +160,7 @@
 
 .header__langButton {
   font-family: 'Cera Pro', sans-serif;
-  display: flex;
+  display: none;
   flex-flow: row;
   align-items: center;
   justify-content: center;
