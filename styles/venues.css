@@ -1,0 +1,14 @@
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
+
+@import url(./components/header.css);
+
+@import url(./components/section__image.css);
+@import url(./components/section__text.css);
+@import url(./components/section__form.css);
+
+@import url(./components/footer.css);
+
+main {
+  background-color: #f2f2f7;
+}

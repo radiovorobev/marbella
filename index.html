@@ -2,23 +2,436 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>La Academia</title>
+    <title>La Academia – Marbella International Football Academy</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <link rel="stylesheet" href="./styles/index.css">
     <!--
     <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
     -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    
 </head>
 <body>
-  <main>
-      <video autoplay muted loop playsinline poster="./images/backgroundPoster.jpg" class="backgroundVideo">
-          <source src="./video/background.mp4" type="video/mp4">
-      </video>
-      <div class="overlay"></div>
-      <div class="content">
-          <img src="./images/logo.svg" alt="Marbella International Football Academy" class="logo">
-          <a href="mailto:info@academymarbella.com" class="cta-button">Learn more</a>
+  <header class="header">
+    <div class="header__container">
+      <a href="https://academymarbella.com/html" alt="Marbella International Football Academy" class="header__logo_container">
+        <img src="./images/logo.svg" alt="Marbella International Football Academy" class="header__logo">
+        <h1 class="header__logo_text">Marbella International Football Academy</h1>
+      </a>
+      <nav class="header__menu_container">
+        <ul class="header__menu">
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="./our-coaches.html">Our Coaches</a></li>
+          <li><a href="./venues.html">Venues</a></li>
+          <li><a href="./programmes.html">Programmes</a></li>
+          <!--
+          <li><a href="#">Training Camps</a></li>
+          <li><a href="#">Media</a></li>
+          -->
+          <li><a href="./contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
+      <a href="https://wa.me/message/474IL7PF6E25O1" target="_blank">
+        <div class="header__cta-button">Join Us</div>
+      </a>
+      <div class="header__lang">
+        <div class="header__langButton">EN</div>
+        <div class="header__langMenu">
+            <div class="header__langOption">ES</div>
+            <div class="header__langOption">RU</div>
+        </div>
       </div>
+      <div class="header__menu_button">
+        <div class="header__menu_line"></div>
+        <div class="header__menu_line"></div>
+        <div class="header__menu_line"></div>
+      </div>
+      <nav class="header__menu_mobile">
+        <ul class="header__menu_mobile-list">
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="./our-coaches.html">Our Coaches</a></li>
+          <li><a href="./venues.html">Venues</a></li>
+          <li><a href="./programmes.html">Programmes</a></li>
+          <li><a href="./contacts.html">Contacts</a></li>
+          <li>
+            <a href="https://wa.me/message/474IL7PF6E25O1" target="_blank">
+              <div class="header__cta-button-mobile-list">Join Us</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class="section__image">
+      <video autoplay muted loop playsinline poster="./images/backgroundPoster.jpg" class="backgroundVideo">
+        <source src="./video/background.mp4" type="video/mp4">
+    </video>
+    <h2 class="section__image_text">Passion Growth Excellence</h2>
+    </section>
+    <section class="section__about">
+      <h2 class="section__about_header">La&nbspAcademia — The&nbsp;Prime Location For Young Players</h2>
+      <div class="section__about_block">
+        <div class="section__about_textBlock">
+          <p class="section__about_number">01</p>
+          <h3>Elite Training For All Ages</h3>
+          <p class="section__about_text">
+            … and all levels of play! Our academy blends top-tier coaching with Spain’s football heritage, providing expert guidance and training of variable intensity. We focus on technical, physical, and mental growth, ensuring every player sharpens their skills and develops their potential.
+          </p>
+        </div>
+        <img src="./images/index/Elite_Training_and_Development.jpg" alt="Elite Training and Development">
+      </div>
+      <div class="section__about_block">
+        <img src="./images/index/Train_on_Natural_Grass_Pitches.jpg" alt="Train on Natural Grass Pitches">
+        <div class="section__about_textBlock">
+          <p class="section__about_number">02</p>
+          <h3>Train on Natural Grass Pitches</h3>
+          <p class="section__about_text">
+            We are the only academy in Marbella with natural grass pitches, offering two professional-grade fields maintained to elite standards. Training on natural grass enhances ball control, movement, and injury prevention that prepares players for the demands of professional football.
+          </p>
+        </div>
+      </div>
+      <div class="section__about_block">
+        <div class="section__about_textBlock">
+          <p class="section__about_number">03</p>
+          <h3>Global Community</h3>
+          <p class="section__about_text">
+            With players from around the world, we create a competitive yet supportive environment where teamwork, discipline, and lifelong friendships thrive. We value our positive atmosphere as much as players development.
+          </p>
+        </div>
+        <img src="./images/index/Global_Community.jpg" alt="Global Community">
+      </div>
+    </section>
+    <section class="section__news">
+      <div class="section__header">
+        <h2>Latest News</h2>
+      </div>
+      <div class="section__news_container">
+        <a href="./news/discover-our-training-programmes.html">
+          <article class="section__news_article">
+            <img src="./images/news/Discover_Our_Training_Programmes_1192_581.jpg" alt="Discover Our Training Programmes" class="section__news_image">
+            <div class="section__news_text-block">
+              <h3 class="section__news_news-header">Discover Our New Training Programmes Suitable For All Ages</h3>
+              <div class="section__news_lead">
+                <p class="section__news_news-text">
+                  La Academia is pleased to announce the launch of its official training programmes, designed to guide young footballers through every stage of their development. Our structured approach provides the technical, tactical, physical, and mental preparation needed to help players reach their full potential.
+                </p>
+                <p class="section__news_news-date">27 February 2025</p>
+              </div>
+            </div>
+          </article>
+        </a>
+        <a href="./news/train-on-natural-grass-at-la-academia.html">
+          <article class="section__news_article">
+            <img src="./images/news/Train-On-Natural-Grass-At-La-Academia_1192_581.jpg" alt="Train on Natural Grass at La Academia" class="section__news_image">
+            <div class="section__news_text-block">
+              <h3 class="section__news_news-header">Train on Natural Grass at La Academia</h3>
+              <div class="section__news_lead">
+                <p class="section__news_news-text">
+                  At La Academia — Marbella International Football Academy, we are committed to providing young players with the best possible training environment. That’s why we are the only football academy in Marbella with professional natural grass pitches—a key feature that sets us apart and gives our players a significant advantage in their football development.
+                </p>
+                <p class="section__news_news-date">25 February 2025</p>
+              </div>
+            </div>
+          </article>
+        </a>
+        <a href="./news/meet-the-coaching-team-at-la-academia.html">
+          <article class="section__news_article">
+            <img src="./images/news/Meet_the_Coaching_Team_at_La_Academia_1192_581.jpg" alt="Meet Our Coaching Team" class="section__news_image">
+            <div class="section__news_text-block">
+              <h3 class="section__news_news-header">Meet Our Coaching Team</h3>
+              <div class="section__news_lead">
+                <p class="section__news_news-text">We are excited to introduce the coaching team at Marbella International Football Academy. This team is committed to developing young talent through professional and engaging training sessions.</p>
+                <p class="section__news_news-date">22 February 2025</p>
+              </div>
+            </div>
+          </article>
+        </a>
+        <a href="./news/marbella_international_football_academy_opens_its_doors.html">
+          <article class="section__news_article">
+            <img src="./images/news/Marbella_International_Football_Academy_Opens_Its_Doors_1192_581.jpg" alt="Marbella International Football Academy Opens Its Doors" class="section__news_image">
+            <div class="section__news_text-block">
+              <h3 class="section__news_news-header">Marbella International Football Academy Opens Its Doors</h3>
+              <div class="section__news_lead">
+                <p class="section__news_news-text">We are excited to announce the official launch of our football academy in Marbella, Spain. Our mission is to provide young players with top-quality training in a professional and supportive environment.</p>
+                <p class="section__news_news-date">18 February 2025</p>
+              </div>
+            </div>
+          </article>
+        </a>
+      </div>
+      <a href="./news.html" alt="More news" class="section__news_button">
+          <span>More news</span>
+          <img src="./images/icon_arrow_white.svg">
+      </a>
+    </section>
+    <section class="section__form">
+      <form class="section__form_form" action="#" method="POST">
+        <div class="section__form_column">
+          <input class="section__form_input" type="text" placeholder="Your Name" name="name" required>
+          <input class="section__form_input" type="tel" placeholder="Mobile Phone Number" name="phone" required>
+          <input class="section__form_input" type="email" placeholder="Email" name="email" required>
+        </div>
+        <div class="section__form_column">
+          <textarea class="section__form_input section__form_textarea" placeholder="Write down anything you would like to know" name="text" required></textarea>
+          <button class="section__form_button" type="submit">
+            ASK A QUESTION 
+            <svg class="section__form_button-icon" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+                <rect x="1" y="1" width="54" height="54" rx="27" stroke="currentColor" stroke-width="2"/>
+                <path d="M10 28H43" stroke="currentColor" stroke-width="2"/>
+                <path d="M30 15L43 28L30 41" stroke="currentColor" stroke-width="2"/>
+            </svg>
+        </button>
+        </div>
+    </form>
+    </section>
+<section class="section__instagram">
+  <div class="section__instagram_container">
+    <div class="section__header">
+      <h2>Play with us</h2>
+      <a href="https://www.instagram.com/academymarbella" target="_blank">
+        <img src="./images/icon_insta.svg" alt="Instagram" class="section__header_social-icon">
+      </a>
+    </div>
+    
+    <!-- Обертка для Swiper -->
+    <div class="swiper-container" style="width:100%; max-width:1192px; overflow:visible;">
+      <!-- Сохраняем оригинальный класс section__instagram_block -->
+      <ul class="swiper-wrapper section__instagram_block" style="margin-top:100px;">
+        <!-- Добавляем класс swiper-slide к каждому изображению -->
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-1.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-2.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-3.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-4.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-5.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-6.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-7.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-8.jpg" alt="Play with us">
+        </div>
+      </ul>
+    </div>
+    
+    <div class="section__instagram_more-button left hidden">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M43 28H10" stroke="currentColor" stroke-width="2"/>
+        <path d="M26 15L10 28L26 41" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>        
+    <div class="section__instagram_more-button">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 28H43" stroke="currentColor" stroke-width="2"/>
+        <path d="M30 15L43 28L30 41" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
   </main>
+  <footer class="footer">
+    <div class="footer__container">
+      <div class="footer__logo_container">
+          <img src="./images/logo.svg" alt="Marbella International Football Academy" class="footer__logo">
+          <h1 class="footer__logo_text">Marbella International<br>Football Academy</h1>
+      </div>
+      <div class="footer__contacts">
+        <a class="footer__phone" href="https://wa.me/message/474IL7PF6E25O1" target="_blank">+34 663 13 12 78</a>
+        <a class="footer__mail" href="mailto:info@academymarbella.com">info@academymarbella.com</a>
+      </div>
+      <menu class="footer__menu_container">
+        <ul class="footer__menu">
+          <li><a href="#">Cookies Notice</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </menu>
+      <div class="footer__social">
+        <a href="https://www.youtube.com/@academymarbella" target="_blank">
+          <img src="./images/icon_youtube.svg" alt="YouTube" class="footer__social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@academymarbella" target="_blank">
+          <img src="./images/icon_tik-tok.svg" alt="TikTok" class="footer__social-icon">
+        </a>
+        <a href="https://www.instagram.com/academymarbella" target="_blank">
+          <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
+        </a>
+        <a href="https://www.facebook.com/academymarbella" target="_blank">
+          <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+        </a>
+      </div>
+      <div class="footer__copyright-container">
+        <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
+      </div>
+      <div class="footer__address-container">
+        <p class="footer__address">Primary Office:</p>
+        <p class="footer__address">La Dama de Noche, Nueva Andalucía, 29660 Marbella, Málaga</p>
+      </div>
+    </div>
+  </footer>
+  <!-- Menu fade-in / fade-out script -->
+  <script>
+    document.addEventListener('scroll', function() {
+    const headerContainer = document.querySelector('.header__container');
+    if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
+      headerContainer.classList.add('scrolled');
+    } else {
+      headerContainer.classList.remove('scrolled');
+    }
+  });
+  </script>
+  <!-- Mobile menu button script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuButton = document.querySelector(".header__menu_button");
+      const mobileMenu = document.querySelector(".header__menu_mobile");
+
+      menuButton.addEventListener("click", function () {
+        menuButton.classList.toggle("open");
+        mobileMenu.classList.toggle("open"); 
+      });
+
+      document.querySelectorAll(".header__menu_mobile-list a").forEach(link => {
+        link.addEventListener("click", function () {
+          menuButton.classList.remove("open");
+          mobileMenu.classList.remove("open");
+        });
+      });
+    });
+  </script>
+  <!-- Gallery script -->
+  <script>document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация Swiper с улучшенными настройками для мобильных
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',    
+      spaceBetween: 20,         
+      loop: true,              
+      speed: 300,              
+      touchRatio: 1.5,          // Увеличиваем чувствительность касания для мобильных
+      touchAngle: 45,           // Допустимый угол для распознавания свайпа
+      touchMoveStopPropagation: true, // Предотвращает распространение событий касания
+      grabCursor: true,         // Курсор-рука при наведении
+      preventInteractionOnTransition: true, // Предотвращает взаимодействие во время анимации
+      autoHeight: false,        // Отключаем авто-высоту
+      cssMode: false,           // Отключаем CSS-режим, который может вызывать проблемы на iOS
+      simulateTouch: true,      // Включаем симуляцию касания на десктопах
+      threshold: 5,             // Минимальное расстояние перемещения для срабатывания свайпа
+      resistance: true,
+      resistanceRatio: 0.85,
+      breakpoints: {
+        320: {
+          spaceBetween: 10,     // Меньше отступов на самых маленьких экранах
+          slidesPerView: 'auto',
+          touchRatio: 2         // Еще более чувствительное касание на малых экранах
+        },
+        480: {
+          spaceBetween: 15,     // Средний отступ для небольших экранов
+          slidesPerView: 'auto'
+        },
+        768: {
+          spaceBetween: 20,
+          slidesPerView: 'auto'
+        }
+      }
+    });
+    
+    // Связываем кнопки навигации
+    const prevButton = document.querySelector('.section__instagram_more-button.left');
+    const nextButton = document.querySelector('.section__instagram_more-button:not(.left)');
+    
+    if (prevButton && nextButton) {
+      prevButton.classList.remove('hidden');
+      
+      prevButton.addEventListener('click', function() {
+        swiper.slidePrev();
+      });
+      
+      nextButton.addEventListener('click', function() {
+        swiper.slideNext();
+      });
+      
+      // Улучшенное управление кнопками на мобильных
+      function updateButtonVisibility() {
+        if (window.innerWidth <= 1439) {
+          prevButton.style.display = 'none';
+          nextButton.style.display = 'none';
+        } else {
+          prevButton.style.display = 'flex';
+          nextButton.style.display = 'flex';
+        }
+      }
+      
+      updateButtonVisibility();
+      window.addEventListener('resize', updateButtonVisibility);
+    }
+    
+    // Корректировка размеров слайдов для различных устройств
+    function updateSlidesSizes() {
+      const slides = document.querySelectorAll('.swiper-slide');
+      const windowWidth = window.innerWidth;
+      
+      slides.forEach(slide => {
+        if (windowWidth <= 480) {
+          // Очень маленькие экраны
+          slide.style.width = '180px';
+          slide.style.height = '226px';
+        } else if (windowWidth <= 768) {
+          // Средние экраны (планшеты, большие телефоны)
+          slide.style.width = '220px';
+          slide.style.height = '276px';
+        } else {
+          // Десктопы и большие планшеты
+          slide.style.width = '290px';
+          slide.style.height = '364px';
+        }
+      });
+      
+      // Обновляем swiper после изменения размеров
+      swiper.update();
+    }
+    
+    // Вызываем функцию сразу и при изменении размеров окна
+    updateSlidesSizes();
+    window.addEventListener('resize', updateSlidesSizes);
+    
+    // Дополнительно - исправляем обработку касаний на iOS и Android
+    document.addEventListener('touchmove', function(e) {
+      if (e.target.closest('.swiper-container')) {
+        // Предотвращаем прокрутку страницы при свайпе слайдера
+        // но только если это действительно горизонтальный свайп
+        const touchStartX = swiper.touchEventsData.startX;
+        const touchCurrentX = e.touches[0].pageX;
+        const touchStartY = swiper.touchEventsData.startY;
+        const touchCurrentY = e.touches[0].pageY;
+        
+        const diffX = Math.abs(touchCurrentX - touchStartX);
+        const diffY = Math.abs(touchCurrentY - touchStartY);
+        
+        if (diffX > diffY && diffX > 10) {
+          e.preventDefault();
+        }
+      }
+    }, { passive: false });
+    
+    // Добавляем обработчик событий для предотвращения проблем с двойными касаниями
+    document.querySelector('.swiper-container').addEventListener('touchstart', function(e) {
+      // Ничего не делаем, но это помогает с некоторыми проблемами iOS
+    }, { passive: true });
+  });
+  </script>
 </body>
 </html>
