@@ -8,6 +8,9 @@
     <!--
     <link rel="icon" type="image/svg+xml" href="./images/favicon.svg">
     -->
+    <script src="https://cdn.jsdelivr.net/npm/swiper@10/swiper-bundle.min.js"></script>
+
+    
 </head>
 <body>
   <header class="header">
@@ -185,38 +188,61 @@
         </div>
     </form>
     </section>
-    <section class="section__instagram">
-      <div class="section__instagram_container">
-        <div class="section__header">
-          <h2>Play with us</h2>
-          <a href="https://www.instagram.com/academymarbella" target="_blank">
-            <img src="./images/icon_insta.svg" alt="Instagram" class="section__header_social-icon">
-          </a>
-        </div>
-        <ul class="section__instagram_block">
+<section class="section__instagram">
+  <div class="section__instagram_container">
+    <div class="section__header">
+      <h2>Play with us</h2>
+      <a href="https://www.instagram.com/academymarbella" target="_blank">
+        <img src="./images/icon_insta.svg" alt="Instagram" class="section__header_social-icon">
+      </a>
+    </div>
+    
+    <!-- Обертка для Swiper -->
+    <div class="swiper-container" style="width:100%; max-width:1192px; overflow:visible;">
+      <!-- Сохраняем оригинальный класс section__instagram_block -->
+      <ul class="swiper-wrapper section__instagram_block" style="margin-top:100px;">
+        <!-- Добавляем класс swiper-slide к каждому изображению -->
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
           <img class="section__instagram_image" src="./images/gallery/gallery-1.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-2.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-3.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-4.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-5.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-6.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-7.jpg" alt="Play with us">
-          <img class="section__instagram_image" src="./images/gallery/gallery-8.jpg" alt="Play with us">
-        </ul>
-        <div class="section__instagram_more-button left hidden ">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M43 28H10" stroke="currentColor" stroke-width="2"/>
-            <path d="M26 15L10 28L26 41" stroke="currentColor" stroke-width="2"/>
-          </svg>
-        </div>        
-        <div class="section__instagram_more-button">
-          <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M10 28H43" stroke="currentColor" stroke-width="2"/>
-            <path d="M30 15L43 28L30 41" stroke="currentColor" stroke-width="2"/>
-          </svg>
         </div>
-      </div>
-    </section>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-2.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-3.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-4.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-5.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-6.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-7.jpg" alt="Play with us">
+        </div>
+        <div class="swiper-slide" style="width:290px; height:364px; padding:0; margin:0; box-sizing:content-box;">
+          <img class="section__instagram_image" src="./images/gallery/gallery-8.jpg" alt="Play with us">
+        </div>
+      </ul>
+    </div>
+    
+    <div class="section__instagram_more-button left hidden">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M43 28H10" stroke="currentColor" stroke-width="2"/>
+        <path d="M26 15L10 28L26 41" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>        
+    <div class="section__instagram_more-button">
+      <svg width="56" height="56" viewBox="0 0 56 56" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M10 28H43" stroke="currentColor" stroke-width="2"/>
+        <path d="M30 15L43 28L30 41" stroke="currentColor" stroke-width="2"/>
+      </svg>
+    </div>
+  </div>
+</section>
   </main>
   <footer class="footer">
     <div class="footer__container">
@@ -289,292 +315,103 @@
   </script>
   <!-- Gallery script -->
   <script>
-  // Instagram carousel functionality - полностью переработанная версия
   document.addEventListener('DOMContentLoaded', function() {
-    // Основные элементы
-    const container = document.querySelector('.section__instagram_container');
-    const carousel = document.querySelector('.section__instagram_block');
-    const rightButton = document.querySelector('.section__instagram_more-button:not(.left)');
-    const leftButton = document.querySelector('.section__instagram_more-button.left');
-    const images = Array.from(carousel.querySelectorAll('.section__instagram_image'));
-    
-    // Конфигурация
-    const config = {
-      slidesVisible: window.innerWidth < 768 ? 1.5 : 3.5,
-      slideWidth: window.innerWidth < 768 ? 220 : 290,
-      slideGap: 20,
-      animationSpeed: 300,
-      currentPosition: 0,
-      isDragging: false,
-      startX: 0,
-      transitionInProgress: false
-    };
-    
-    // Инициализация карусели
-    function initCarousel() {
-      // Настройка стилей для карусели
-      carousel.style.display = 'flex';
-      carousel.style.gap = `${config.slideGap}px`;
-      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
-      
-      // Клонирование изображений для бесконечной прокрутки
-      const totalWidth = getTotalCarouselWidth();
-      const viewportWidth = container.clientWidth;
-      const needsClones = totalWidth < viewportWidth * 2;
-      
-      if (needsClones) {
-        images.forEach(image => {
-          const clone = image.cloneNode(true);
-          carousel.appendChild(clone);
-        });
+  // Скрываем стандартные стили Swiper
+  document.head.insertAdjacentHTML('beforeend', `
+    <style>
+      .swiper-wrapper {
+        display: flex;
+        transition-property: transform;
+        box-sizing: content-box;
       }
-      
-      // Добавление обработчиков событий
-      addEventListeners();
-      
-      // Начальная настройка кнопок
-      updateButtonsVisibility();
-    }
-    
-    // Получение общей ширины карусели
-    function getTotalCarouselWidth() {
-      return images.length * (config.slideWidth + config.slideGap) - config.slideGap;
-    }
-    
-    // Добавление всех обработчиков событий
-    function addEventListeners() {
-      // Кнопки навигации
-      rightButton.addEventListener('click', slideRight);
-      leftButton.addEventListener('click', slideLeft);
-      
-      // События прикосновения (mobile)
-      carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
-      carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
-      carousel.addEventListener('touchend', handleTouchEnd);
-      
-      // События мыши (desktop)
-      carousel.addEventListener('mousedown', handleMouseDown);
-      window.addEventListener('mousemove', handleMouseMove);
-      window.addEventListener('mouseup', handleMouseUp);
-      
-      // Изменение размера окна
-      window.addEventListener('resize', handleResize);
-      
-      // Обработка окончания анимации
-      carousel.addEventListener('transitionend', () => {
-        config.transitionInProgress = false;
-      });
-    }
-    
-    // Обновление видимости кнопок
-    function updateButtonsVisibility() {
-      if (config.currentPosition === 0) {
-        leftButton.classList.add('hidden');
-      } else {
-        leftButton.classList.remove('hidden');
+      .swiper-container {
+        position: relative;
+        z-index: 1;
       }
-    }
-    
-    // Обработчики событий кнопок
-    function slideRight() {
-      if (config.transitionInProgress) return;
-      
-      const slideSize = config.slideWidth + config.slideGap;
-      const maxScroll = carousel.scrollWidth - container.clientWidth;
-      const newPosition = Math.min(config.currentPosition + slideSize, maxScroll);
-      
-      scroll(newPosition);
-    }
-    
-    function slideLeft() {
-      if (config.transitionInProgress) return;
-      
-      const slideSize = config.slideWidth + config.slideGap;
-      const newPosition = Math.max(config.currentPosition - slideSize, 0);
-      
-      scroll(newPosition);
-    }
-    
-    // Функция прокрутки с анимацией
-    function scroll(position) {
-      config.transitionInProgress = true;
-      config.currentPosition = position;
-      
-      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
-      carousel.style.transform = `translateX(-${position}px)`;
-      
-      // Обновить видимость кнопок после прокрутки
-      updateButtonsVisibility();
-    }
-    
-    // Быстрая прокрутка без анимации
-    function scrollWithoutAnimation(position) {
-      config.currentPosition = position;
-      
-      carousel.style.transition = 'none';
-      carousel.style.transform = `translateX(-${position}px)`;
-      
-      // Запустить reflow для применения изменений
-      carousel.offsetHeight;
-      
-      // Восстановить анимацию
-      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
-      
-      // Обновить видимость кнопок
-      updateButtonsVisibility();
-    }
-    
-    // Обработчики сенсорных событий (mobile)
-    function handleTouchStart(event) {
-      if (config.transitionInProgress) return;
-      
-      config.isDragging = true;
-      config.startX = event.touches[0].clientX;
-      config.startPosition = config.currentPosition;
-      
-      // Отключить анимацию на время перетаскивания
-      carousel.style.transition = 'none';
-    }
-    
-    function handleTouchMove(event) {
-      if (!config.isDragging) return;
-      
-      const currentX = event.touches[0].clientX;
-      const diffX = config.startX - currentX;
-      
-      // Если пользователь делает горизонтальный свайп, предотвратить прокрутку страницы
-      if (Math.abs(diffX) > 5) {
-        event.preventDefault();
-      }
-      
-      let newPosition = config.startPosition + diffX;
-      
-      // Ограничить прокрутку пределами карусели с замедлением за границами
-      const maxScroll = carousel.scrollWidth - container.clientWidth;
-      
-      if (newPosition < 0) {
-        newPosition = newPosition * 0.3; // Замедление при перетаскивании за левый край
-      } else if (newPosition > maxScroll) {
-        newPosition = maxScroll + (newPosition - maxScroll) * 0.3; // Замедление при перетаскивании за правый край
-      }
-      
-      carousel.style.transform = `translateX(-${newPosition}px)`;
-    }
-    
-    function handleTouchEnd(event) {
-      if (!config.isDragging) return;
-      
-      config.isDragging = false;
-      
-      // Восстановить анимацию
-      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
-      
-      const touchEndX = event.changedTouches[0].clientX;
-      const diffX = config.startX - touchEndX;
-      const slideSize = config.slideWidth + config.slideGap;
-      
-      // Определить, нужно ли переключиться на следующий/предыдущий слайд
-      if (Math.abs(diffX) > slideSize * 0.2) {
-        // Достаточное перетаскивание для переключения слайда
-        if (diffX > 0) {
-          // Перетаскивание влево - показать следующий слайд
-          const maxScroll = carousel.scrollWidth - container.clientWidth;
-          const newPosition = Math.min(config.startPosition + slideSize, maxScroll);
-          scroll(newPosition);
-        } else {
-          // Перетаскивание вправо - показать предыдущий слайд
-          const newPosition = Math.max(config.startPosition - slideSize, 0);
-          scroll(newPosition);
-        }
-      } else {
-        // Недостаточное перетаскивание - вернуться к исходному положению
-        scroll(config.startPosition);
-      }
-    }
-    
-    // Обработчики событий мыши (desktop)
-    function handleMouseDown(event) {
-      if (config.transitionInProgress) return;
-      
-      event.preventDefault();
-      config.isDragging = true;
-      config.startX = event.clientX;
-      config.startPosition = config.currentPosition;
-      
-      // Изменить курсор
-      carousel.style.cursor = 'grabbing';
-      
-      // Отключить анимацию на время перетаскивания
-      carousel.style.transition = 'none';
-    }
-    
-    function handleMouseMove(event) {
-      if (!config.isDragging) return;
-      
-      const currentX = event.clientX;
-      const diffX = config.startX - currentX;
-      let newPosition = config.startPosition + diffX;
-      
-      // Ограничить прокрутку с замедлением
-      const maxScroll = carousel.scrollWidth - container.clientWidth;
-      
-      if (newPosition < 0) {
-        newPosition = newPosition * 0.3;
-      } else if (newPosition > maxScroll) {
-        newPosition = maxScroll + (newPosition - maxScroll) * 0.3;
-      }
-      
-      carousel.style.transform = `translateX(-${newPosition}px)`;
-    }
-    
-    function handleMouseUp(event) {
-      if (!config.isDragging) return;
-      
-      config.isDragging = false;
-      
-      // Восстановить стандартный курсор
-      carousel.style.cursor = 'grab';
-      
-      // Восстановить анимацию
-      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
-      
-      const diffX = config.startX - event.clientX;
-      const slideSize = config.slideWidth + config.slideGap;
-      
-      if (Math.abs(diffX) > slideSize * 0.2) {
-        if (diffX > 0) {
-          // Перетаскивание влево
-          const maxScroll = carousel.scrollWidth - container.clientWidth;
-          const newPosition = Math.min(config.startPosition + slideSize, maxScroll);
-          scroll(newPosition);
-        } else {
-          // Перетаскивание вправо
-          const newPosition = Math.max(config.startPosition - slideSize, 0);
-          scroll(newPosition);
-        }
-      } else {
-        // Вернуться к исходному положению
-        scroll(config.startPosition);
-      }
-    }
-    
-    // Обработка изменения размера окна
-    function handleResize() {
-      // Обновить конфигурацию в зависимости от размера экрана
-      config.slideWidth = window.innerWidth < 768 ? 220 : 290;
-      config.slidesVisible = window.innerWidth < 768 ? 1.5 : 3.5;
-      
-      // Пересчитать позицию с учетом нового размера слайдов
-      const slideIndexAtCurrentPosition = Math.round(config.currentPosition / (config.slideWidth + config.slideGap));
-      const newPosition = slideIndexAtCurrentPosition * (config.slideWidth + config.slideGap);
-      
-      // Применить новую позицию без анимации
-      scrollWithoutAnimation(newPosition);
-    }
-    
-    // Запустить инициализацию
-    initCarousel();
+      /* Остальные стили Swiper не применяем */
+    </style>
+  `);
+  
+  // Инициализация Swiper
+  var swiper = new Swiper('.swiper-container', {
+    slidesPerView: 'auto',    // Автоматическое определение количества слайдов
+    spaceBetween: 20,         // Соответствует вашему gap
+    loop: true,               // Бесконечная прокрутка
+    speed: 300,               // Скорость анимации
+    centeredSlides: false,    // Не центрировать слайды
+    initialSlide: 0,          // Начинать с первого слайда
+    slidesOffsetBefore: 0,    // Нет отступа перед первым слайдом
+    resistance: true,         // Сопротивление при достижении края
+    resistanceRatio: 0.85,    // Уровень сопротивления
+    loopAdditionalSlides: 4,  // Дополнительные слайды для правильного loop
+    observer: true,           // Обновлять при изменении DOM
+    observeParents: true,     // Обновлять при изменении родителей
+    // Отключаем все лишнее
+    watchSlidesProgress: false,
+    watchSlidesVisibility: false,
+    navigation: false,
+    pagination: false,
+    scrollbar: false
   });
+  
+  // Связываем ваши собственные кнопки со Swiper
+  const prevButton = document.querySelector('.section__instagram_more-button.left');
+  const nextButton = document.querySelector('.section__instagram_more-button:not(.left)');
+  
+  // Показываем левую кнопку
+  prevButton.classList.remove('hidden');
+  
+  // Добавляем обработчики событий для кнопок
+  prevButton.addEventListener('click', function() {
+    swiper.slidePrev();
+  });
+  
+  nextButton.addEventListener('click', function() {
+    swiper.slideNext();
+  });
+  
+  // Управление видимостью кнопок на мобильных устройствах
+  function updateButtonVisibility() {
+    if (window.innerWidth <= 1439) {
+      prevButton.style.display = 'none';
+      nextButton.style.display = 'none';
+    } else {
+      prevButton.style.display = 'flex';
+      nextButton.style.display = 'flex';
+    }
+  }
+  
+  // Вызываем функцию при загрузке и изменении размера окна
+  updateButtonVisibility();
+  window.addEventListener('resize', updateButtonVisibility);
+  
+  // Предотвращаем применение стилей Swiper, которые могут нарушить ваш дизайн
+  swiper.on('init', function() {
+    const slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => {
+      // Сохраняем точные размеры слайдов
+      if (window.innerWidth <= 768) {
+        slide.style.width = '220px';
+      } else {
+        slide.style.width = '290px';
+      }
+      slide.style.marginRight = '20px';
+    });
+  });
+  
+  // Обновляем размеры слайдов при изменении размера окна
+  window.addEventListener('resize', function() {
+    const slides = document.querySelectorAll('.swiper-slide');
+    slides.forEach(slide => {
+      if (window.innerWidth <= 768) {
+        slide.style.width = '220px';
+      } else {
+        slide.style.width = '290px';
+      }
+    });
+    swiper.update(); // Обновляем Swiper
+  });
+});
   </script>
 </body>
 </html>

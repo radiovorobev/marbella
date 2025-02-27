@@ -1,3 +1,26 @@
+.glide {
+  padding-left: 240px;
+}
+
+/* Добавьте эти стили к вашему CSS */
+.glide__slide {
+  transform: none !important; /* Предотвращает нежелательные трансформации */
+}
+
+.section__instagram_block {
+  margin-left: 0 !important; /* Убедитесь, что нет дополнительных отступов */
+}
+
+/* Исправление для правильного отображения изображений */
+.section__instagram_image {
+  display: block;
+  width: 100%; /* Меняем на 100%, чтобы изображение занимало весь слайд */
+  max-width: 290px; /* Но ограничиваем максимальную ширину */
+  height: 364px;
+  object-fit: cover;
+  margin: 0 auto; /* Центрируем изображение в слайде */
+}
+
 .section__instagram {
   width: 100%;
   margin: 0 auto;
@@ -29,7 +52,7 @@
   flex-flow: row;
   justify-content: flex-start;
   align-items: center;
-  gap: 20px;
+  gap: 0;
   padding: 0;
   margin: 100px 0 0 0;
   z-index: 1;
@@ -150,6 +173,11 @@
 }
 
 @media screen and (max-width: 1439px) {
+
+  .glide {
+    padding-left: 0;
+  }
+
   .section__instagram {
     padding: 0 0 90px 0;
   }
