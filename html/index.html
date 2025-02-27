@@ -242,256 +242,327 @@
       </div>
     </div>
   </footer>
-</body>
-<!-- Menu fade-in / fade-out script -->
-<script>
-  document.addEventListener('scroll', function() {
-  const headerContainer = document.querySelector('.header__container');
-  if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
-    headerContainer.classList.add('scrolled');
-  } else {
-    headerContainer.classList.remove('scrolled');
-  }
-});
-</script>
+  <!-- Menu fade-in / fade-out script -->
+  <script>
+    document.addEventListener('scroll', function() {
+    const headerContainer = document.querySelector('.header__container');
+    if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
+      headerContainer.classList.add('scrolled');
+    } else {
+      headerContainer.classList.remove('scrolled');
+    }
+  });
+  </script>
 
-<!-- Mobile menu button script -->
+  <!-- Mobile menu button script -->
 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const menuButton = document.querySelector(".header__menu_button");
-    const mobileMenu = document.querySelector(".header__menu_mobile");
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuButton = document.querySelector(".header__menu_button");
+      const mobileMenu = document.querySelector(".header__menu_mobile");
 
-    menuButton.addEventListener("click", function () {
-      menuButton.classList.toggle("open");
-      mobileMenu.classList.toggle("open"); 
-    });
+      menuButton.addEventListener("click", function () {
+        menuButton.classList.toggle("open");
+        mobileMenu.classList.toggle("open"); 
+      });
 
-    document.querySelectorAll(".header__menu_mobile-list a").forEach(link => {
-      link.addEventListener("click", function () {
-        menuButton.classList.remove("open");
-        mobileMenu.classList.remove("open");
+      document.querySelectorAll(".header__menu_mobile-list a").forEach(link => {
+        link.addEventListener("click", function () {
+          menuButton.classList.remove("open");
+          mobileMenu.classList.remove("open");
+        });
       });
     });
-  });
-</script>
+  </script>
 
-<!-- Gallery script -->
-<script>
- // Instagram carousel functionality
-document.addEventListener('DOMContentLoaded', function() {
-  const carousel = document.querySelector('.section__instagram_block');
-  const rightButton = document.querySelector('.section__instagram_more-button:not(.left)');
-  const leftButton = document.querySelector('.section__instagram_more-button.left');
-  const images = carousel.querySelectorAll('.section__instagram_image');
-  
-  // Clone images for infinite scrolling
-  images.forEach(image => {
-    const clone = image.cloneNode(true);
-    carousel.appendChild(clone);
-  });
-  
-  let isDragging = false;
-  let startPosition = 0;
-  let currentTranslate = 0;
-  let prevTranslate = 0;
-  let animationID = 0;
-  let currentIndex = 0;
-  const imageWidth = 290; // Width of each image
-  const imageGap = 20; // Gap between images
-  const slideDistance = imageWidth + imageGap;
-  const totalImages = images.length;
-  
-  // Adjust slideDistance for mobile
-  function getSlideDistance() {
-    if (window.innerWidth <= 768) {
-      return 220 + imageGap; // Smaller width on mobile
+  <!-- Gallery script -->
+  <script>
+  // Instagram carousel functionality - полностью переработанная версия
+  document.addEventListener('DOMContentLoaded', function() {
+    // Основные элементы
+    const container = document.querySelector('.section__instagram_container');
+    const carousel = document.querySelector('.section__instagram_block');
+    const rightButton = document.querySelector('.section__instagram_more-button:not(.left)');
+    const leftButton = document.querySelector('.section__instagram_more-button.left');
+    const images = Array.from(carousel.querySelectorAll('.section__instagram_image'));
+    
+    // Конфигурация
+    const config = {
+      slidesVisible: window.innerWidth < 768 ? 1.5 : 3.5,
+      slideWidth: window.innerWidth < 768 ? 220 : 290,
+      slideGap: 20,
+      animationSpeed: 300,
+      currentPosition: 0,
+      isDragging: false,
+      startX: 0,
+      transitionInProgress: false
+    };
+    
+    // Инициализация карусели
+    function initCarousel() {
+      // Настройка стилей для карусели
+      carousel.style.display = 'flex';
+      carousel.style.gap = `${config.slideGap}px`;
+      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
+      
+      // Клонирование изображений для бесконечной прокрутки
+      const totalWidth = getTotalCarouselWidth();
+      const viewportWidth = container.clientWidth;
+      const needsClones = totalWidth < viewportWidth * 2;
+      
+      if (needsClones) {
+        images.forEach(image => {
+          const clone = image.cloneNode(true);
+          carousel.appendChild(clone);
+        });
+      }
+      
+      // Добавление обработчиков событий
+      addEventListeners();
+      
+      // Начальная настройка кнопок
+      updateButtonsVisibility();
     }
-    return slideDistance;
-  }
-  
-  // Initialize
-  function init() {
-    // Set initial carousel styles for smooth transitions
-    carousel.style.display = 'flex';
-    carousel.style.transition = 'transform 0.3s ease-out';
-    carousel.style.cursor = 'grab';
     
-    // Add event listeners for buttons
-    rightButton.addEventListener('click', slideRight);
-    leftButton.addEventListener('click', slideLeft);
-    
-    // Touch events for mobile
-    carousel.addEventListener('touchstart', touchStart, { passive: false });
-    carousel.addEventListener('touchmove', touchMove, { passive: false });
-    carousel.addEventListener('touchend', touchEnd);
-    
-    // Mouse events for desktop
-    carousel.addEventListener('mousedown', dragStart);
-    carousel.addEventListener('mouseup', dragEnd);
-    carousel.addEventListener('mouseleave', dragEnd);
-    carousel.addEventListener('mousemove', drag);
-    
-    // Initial check for left button
-    updateLeftButtonVisibility();
-    
-    // Handle window resize
-    window.addEventListener('resize', updateCarouselOnResize);
-  }
-  
-  // Handle resize events
-  function updateCarouselOnResize() {
-    // Recalculate positions based on new screen size
-    setPositionByIndex(false);
-  }
-  
-  // Show/hide left button based on position
-  function updateLeftButtonVisibility() {
-    if (currentIndex > 0) {
-      leftButton.classList.remove('hidden');
-    } else {
-      leftButton.classList.add('hidden');
+    // Получение общей ширины карусели
+    function getTotalCarouselWidth() {
+      return images.length * (config.slideWidth + config.slideGap) - config.slideGap;
     }
-  }
-  
-  // Slide to the right
-  function slideRight() {
-    if (currentIndex < totalImages - 1) {
-      currentIndex += 1;
-    } else {
-      // For infinite loop, reset to beginning with smooth transition
-      currentIndex = 0;
+    
+    // Добавление всех обработчиков событий
+    function addEventListeners() {
+      // Кнопки навигации
+      rightButton.addEventListener('click', slideRight);
+      leftButton.addEventListener('click', slideLeft);
+      
+      // События прикосновения (mobile)
+      carousel.addEventListener('touchstart', handleTouchStart, { passive: true });
+      carousel.addEventListener('touchmove', handleTouchMove, { passive: false });
+      carousel.addEventListener('touchend', handleTouchEnd);
+      
+      // События мыши (desktop)
+      carousel.addEventListener('mousedown', handleMouseDown);
+      window.addEventListener('mousemove', handleMouseMove);
+      window.addEventListener('mouseup', handleMouseUp);
+      
+      // Изменение размера окна
+      window.addEventListener('resize', handleResize);
+      
+      // Обработка окончания анимации
+      carousel.addEventListener('transitionend', () => {
+        config.transitionInProgress = false;
+      });
     }
-    setPositionByIndex();
-    updateLeftButtonVisibility();
-  }
-  
-  // Slide to the left
-  function slideLeft() {
-    if (currentIndex > 0) {
-      currentIndex -= 1;
-    } else {
-      // For infinite loop, go to end with smooth transition
-      currentIndex = totalImages - 1;
+    
+    // Обновление видимости кнопок
+    function updateButtonsVisibility() {
+      if (config.currentPosition === 0) {
+        leftButton.classList.add('hidden');
+      } else {
+        leftButton.classList.remove('hidden');
+      }
     }
-    setPositionByIndex();
-    updateLeftButtonVisibility();
-  }
-  
-  // Set position based on current index
-  function setPositionByIndex(animate = true) {
-    if (animate) {
-      carousel.style.transition = 'transform 0.3s ease-out';
-    } else {
+    
+    // Обработчики событий кнопок
+    function slideRight() {
+      if (config.transitionInProgress) return;
+      
+      const slideSize = config.slideWidth + config.slideGap;
+      const maxScroll = carousel.scrollWidth - container.clientWidth;
+      const newPosition = Math.min(config.currentPosition + slideSize, maxScroll);
+      
+      scroll(newPosition);
+    }
+    
+    function slideLeft() {
+      if (config.transitionInProgress) return;
+      
+      const slideSize = config.slideWidth + config.slideGap;
+      const newPosition = Math.max(config.currentPosition - slideSize, 0);
+      
+      scroll(newPosition);
+    }
+    
+    // Функция прокрутки с анимацией
+    function scroll(position) {
+      config.transitionInProgress = true;
+      config.currentPosition = position;
+      
+      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
+      carousel.style.transform = `translateX(-${position}px)`;
+      
+      // Обновить видимость кнопок после прокрутки
+      updateButtonsVisibility();
+    }
+    
+    // Быстрая прокрутка без анимации
+    function scrollWithoutAnimation(position) {
+      config.currentPosition = position;
+      
+      carousel.style.transition = 'none';
+      carousel.style.transform = `translateX(-${position}px)`;
+      
+      // Запустить reflow для применения изменений
+      carousel.offsetHeight;
+      
+      // Восстановить анимацию
+      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
+      
+      // Обновить видимость кнопок
+      updateButtonsVisibility();
+    }
+    
+    // Обработчики сенсорных событий (mobile)
+    function handleTouchStart(event) {
+      if (config.transitionInProgress) return;
+      
+      config.isDragging = true;
+      config.startX = event.touches[0].clientX;
+      config.startPosition = config.currentPosition;
+      
+      // Отключить анимацию на время перетаскивания
       carousel.style.transition = 'none';
     }
     
-    currentTranslate = currentIndex * -getSlideDistance();
-    prevTranslate = currentTranslate;
-    setCarouselPosition();
-    
-    // Reset transition after a short delay
-    if (!animate) {
-      setTimeout(() => {
-        carousel.style.transition = 'transform 0.3s ease-out';
-      }, 50);
-    }
-  }
-  
-  // Apply transform to carousel
-  function setCarouselPosition() {
-    carousel.style.transform = `translateX(${currentTranslate}px)`;
-  }
-  
-  // Touch event handlers for mobile
-  function touchStart(event) {
-    startPosition = event.touches[0].clientX;
-    isDragging = true;
-    animationID = requestAnimationFrame(animation);
-    
-    // Stop default behavior (like page scrolling)
-    // But don't prevent default for all touch events to allow scrolling the page
-    if (Math.abs(event.touches[0].clientY - event.touches[0].clientY) < 10) {
-      event.preventDefault();
-    }
-  }
-  
-  function touchMove(event) {
-    if (isDragging) {
-      const currentPosition = event.touches[0].clientX;
-      const diff = currentPosition - startPosition;
+    function handleTouchMove(event) {
+      if (!config.isDragging) return;
       
-      // If trying to scroll horizontally, prevent page scrolling
-      if (Math.abs(diff) > 5) {
+      const currentX = event.touches[0].clientX;
+      const diffX = config.startX - currentX;
+      
+      // Если пользователь делает горизонтальный свайп, предотвратить прокрутку страницы
+      if (Math.abs(diffX) > 5) {
         event.preventDefault();
       }
       
-      currentTranslate = prevTranslate + diff;
-    }
-  }
-  
-  function touchEnd() {
-    cancelAnimationFrame(animationID);
-    isDragging = false;
-    
-    const movedBy = currentTranslate - prevTranslate;
-    
-    // Adjust threshold for swipe on mobile (use smaller threshold)
-    const threshold = window.innerWidth > 768 ? 100 : 50;
-    
-    if (movedBy < -threshold && currentIndex < totalImages - 1) {
-      currentIndex += 1;
-    } else if (movedBy > threshold && currentIndex > 0) {
-      currentIndex -= 1;
+      let newPosition = config.startPosition + diffX;
+      
+      // Ограничить прокрутку пределами карусели с замедлением за границами
+      const maxScroll = carousel.scrollWidth - container.clientWidth;
+      
+      if (newPosition < 0) {
+        newPosition = newPosition * 0.3; // Замедление при перетаскивании за левый край
+      } else if (newPosition > maxScroll) {
+        newPosition = maxScroll + (newPosition - maxScroll) * 0.3; // Замедление при перетаскивании за правый край
+      }
+      
+      carousel.style.transform = `translateX(-${newPosition}px)`;
     }
     
-    setPositionByIndex();
-    updateLeftButtonVisibility();
-  }
-  
-  // Mouse event handlers for desktop
-  function dragStart(event) {
-    event.preventDefault();
-    startPosition = event.clientX;
-    carousel.style.cursor = 'grabbing';
-    
-    isDragging = true;
-    animationID = requestAnimationFrame(animation);
-  }
-  
-  function drag(event) {
-    if (isDragging) {
-      const currentPosition = event.clientX;
-      const diff = currentPosition - startPosition;
-      currentTranslate = prevTranslate + diff;
-    }
-  }
-  
-  function dragEnd() {
-    cancelAnimationFrame(animationID);
-    isDragging = false;
-    carousel.style.cursor = 'grab';
-    
-    const movedBy = currentTranslate - prevTranslate;
-    
-    if (movedBy < -100 && currentIndex < totalImages - 1) {
-      currentIndex += 1;
-    } else if (movedBy > 100 && currentIndex > 0) {
-      currentIndex -= 1;
+    function handleTouchEnd(event) {
+      if (!config.isDragging) return;
+      
+      config.isDragging = false;
+      
+      // Восстановить анимацию
+      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
+      
+      const touchEndX = event.changedTouches[0].clientX;
+      const diffX = config.startX - touchEndX;
+      const slideSize = config.slideWidth + config.slideGap;
+      
+      // Определить, нужно ли переключиться на следующий/предыдущий слайд
+      if (Math.abs(diffX) > slideSize * 0.2) {
+        // Достаточное перетаскивание для переключения слайда
+        if (diffX > 0) {
+          // Перетаскивание влево - показать следующий слайд
+          const maxScroll = carousel.scrollWidth - container.clientWidth;
+          const newPosition = Math.min(config.startPosition + slideSize, maxScroll);
+          scroll(newPosition);
+        } else {
+          // Перетаскивание вправо - показать предыдущий слайд
+          const newPosition = Math.max(config.startPosition - slideSize, 0);
+          scroll(newPosition);
+        }
+      } else {
+        // Недостаточное перетаскивание - вернуться к исходному положению
+        scroll(config.startPosition);
+      }
     }
     
-    setPositionByIndex();
-    updateLeftButtonVisibility();
-  }
-  
-  // Animation function
-  function animation() {
-    setCarouselPosition();
-    if (isDragging) requestAnimationFrame(animation);
-  }
-  
-  // Initialize the carousel
-  init();
-});
-</script>
+    // Обработчики событий мыши (desktop)
+    function handleMouseDown(event) {
+      if (config.transitionInProgress) return;
+      
+      event.preventDefault();
+      config.isDragging = true;
+      config.startX = event.clientX;
+      config.startPosition = config.currentPosition;
+      
+      // Изменить курсор
+      carousel.style.cursor = 'grabbing';
+      
+      // Отключить анимацию на время перетаскивания
+      carousel.style.transition = 'none';
+    }
+    
+    function handleMouseMove(event) {
+      if (!config.isDragging) return;
+      
+      const currentX = event.clientX;
+      const diffX = config.startX - currentX;
+      let newPosition = config.startPosition + diffX;
+      
+      // Ограничить прокрутку с замедлением
+      const maxScroll = carousel.scrollWidth - container.clientWidth;
+      
+      if (newPosition < 0) {
+        newPosition = newPosition * 0.3;
+      } else if (newPosition > maxScroll) {
+        newPosition = maxScroll + (newPosition - maxScroll) * 0.3;
+      }
+      
+      carousel.style.transform = `translateX(-${newPosition}px)`;
+    }
+    
+    function handleMouseUp(event) {
+      if (!config.isDragging) return;
+      
+      config.isDragging = false;
+      
+      // Восстановить стандартный курсор
+      carousel.style.cursor = 'grab';
+      
+      // Восстановить анимацию
+      carousel.style.transition = `transform ${config.animationSpeed}ms ease`;
+      
+      const diffX = config.startX - event.clientX;
+      const slideSize = config.slideWidth + config.slideGap;
+      
+      if (Math.abs(diffX) > slideSize * 0.2) {
+        if (diffX > 0) {
+          // Перетаскивание влево
+          const maxScroll = carousel.scrollWidth - container.clientWidth;
+          const newPosition = Math.min(config.startPosition + slideSize, maxScroll);
+          scroll(newPosition);
+        } else {
+          // Перетаскивание вправо
+          const newPosition = Math.max(config.startPosition - slideSize, 0);
+          scroll(newPosition);
+        }
+      } else {
+        // Вернуться к исходному положению
+        scroll(config.startPosition);
+      }
+    }
+    
+    // Обработка изменения размера окна
+    function handleResize() {
+      // Обновить конфигурацию в зависимости от размера экрана
+      config.slideWidth = window.innerWidth < 768 ? 220 : 290;
+      config.slidesVisible = window.innerWidth < 768 ? 1.5 : 3.5;
+      
+      // Пересчитать позицию с учетом нового размера слайдов
+      const slideIndexAtCurrentPosition = Math.round(config.currentPosition / (config.slideWidth + config.slideGap));
+      const newPosition = slideIndexAtCurrentPosition * (config.slideWidth + config.slideGap);
+      
+      // Применить новую позицию без анимации
+      scrollWithoutAnimation(newPosition);
+    }
+    
+    // Запустить инициализацию
+    initCarousel();
+  });
+  </script>
+</body>
 </html>
