@@ -62,7 +62,7 @@
   left: 0;
   width: 100%;
   height: 130px;
-  background-image: url("../../images/pattern_waves.svg");
+  background-image: url("../images/pattern_waves.svg");
   background-size: initial;
   background-repeat:repeat-x;
   opacity: 1;
@@ -94,6 +94,61 @@
   height: 364px;
 }
 
+/* Additional styles for carousel functionality */
+.section__instagram_block {
+
+  overflow: visible; /* Allow overflow for infinite scrolling */
+  transition: transform 0.3s ease-out;
+  user-select: none; /* Prevent text selection during drag */
+  -webkit-user-select: none;
+}
+
+.section__instagram_more-button.left {
+  left: 68px;
+  right: auto;
+}
+
+.hidden {
+  display: none;
+}
+
+/* Ensure images don't shrink */
+.section__instagram_image {
+  flex-shrink: 0;
+  width: 290px;
+  height: 364px;
+  object-fit: cover;
+}
+
+/* Make sure the container allows for full-width scrolling */
+.section__instagram_container {
+  padding: 0;
+  max-width: 1440px;
+  overflow: hidden; /* Hide overflow at container level */
+}
+
+@media screen and (max-width: 1439px) {
+  .section__instagram_more-button.left,
+  .section__instagram_more-button {
+    display: flex; /* Keep buttons visible on all screen sizes */
+  }
+  
+  .section__instagram_more-button.left {
+    left: 20px;
+  }
+  
+  .section__instagram_more-button:not(.left) {
+    right: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .section__instagram_image {
+    width: 220px;
+    height: 276px;
+  }
+}
+
 @media screen and (max-width: 1439px) {
   .section__instagram {
     padding: 0 0 90px 0;
@@ -106,5 +161,23 @@
   }
   .section__instagram_more-button {
     display: none;
+  } 
+  
+  .section__instagram_more-button.left {
+    display: none;
+  }
+
+  .section__instagram::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 0;
+    width: 100%;
+    height: 130px;
+    background-image: url("../images/pattern_waves.svg");
+    background-size: initial;
+    background-repeat:repeat-x;
+    opacity: 1;
+    z-index: 0;
   }
 }
