@@ -45,6 +45,16 @@
         <div class="header__menu_line"></div>
         <div class="header__menu_line"></div>
       </div>
+      <nav class="header__menu_mobile">
+        <ul class="header__menu_mobile-list">
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="./our-coaches.html">Our Coaches</a></li>
+          <li><a href="./venues.html">Venues</a></li>
+          <li><a href="./programmes.html">Programmes</a></li>
+          <li><a href="./contacts.html">Contacts</a></li>
+        </ul>
+      </nav>
     </div>
   </header>
   <main>
@@ -234,4 +244,24 @@
   }
 });
 </script>
+<script>
+  document.addEventListener("DOMContentLoaded", function () {
+    const menuButton = document.querySelector(".header__menu_button");
+    const mobileMenu = document.querySelector(".header__menu_mobile");
+
+    menuButton.addEventListener("click", function () {
+      menuButton.classList.toggle("open"); // Меняем иконку на крестик
+      mobileMenu.classList.toggle("open"); // Показываем/скрываем меню
+    });
+
+    // Закрываем меню при клике на ссылку
+    document.querySelectorAll(".header__menu_mobile-list a").forEach(link => {
+      link.addEventListener("click", function () {
+        menuButton.classList.remove("open");
+        mobileMenu.classList.remove("open");
+      });
+    });
+  });
+</script>
+
 </html>
