@@ -3,6 +3,7 @@
   margin: 0 auto;
   padding: 53px 124px;
   box-sizing: border-box;
+  display: none;
 }
 
 .section__form_form {
