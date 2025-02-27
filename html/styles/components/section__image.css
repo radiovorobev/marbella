@@ -52,7 +52,7 @@
   }
 
   .backgroundVideo {
-    height: calc(100vh - 80px);
+    height: calc(100vh - 120px);
     object-fit: cover;
   }
 }
