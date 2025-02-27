@@ -38,6 +38,36 @@
   margin: 0;
 }
 
+.two-columns-text {
+  column-count: 2;
+  column-gap: 20px;
+  column-fill: balance; /* Равномерное заполнение колонок */
+  min-height: 200px; /* Заставляет Safari создавать вторую колонку */
+}
+
+.two-columns-text p {
+  display: inline-block;
+  width: 100%;
+  break-inside: avoid-column; /* Предотвращает разрыв абзацев */
+  page-break-inside: avoid; /* Safari-фикс */
+  margin: 0 0 20px 0;
+  font-family: Cera Pro;
+  font-weight: 400;
+  font-size: 21px;
+  line-height: 26.4px;
+  text-align: left;
+}
+
+/* Убираем баг Safari с отступом во второй колонке */
+.two-columns-text p:first-child,
+.two-columns-text p:nth-child(2) {
+  margin-top: 0 !important;
+}
+
+.two-columns-text p:not(:first-child) {
+  padding-top: 0; /* Вместо margin-top */
+}
+
 @media screen and (max-width: 1439px) {
   .section__text_container {
     display: flex;
@@ -52,5 +82,9 @@
   .section__text p {
     font-size: 20px;
     line-height: 25.14px;
+  }
+
+  .two-columns-text {
+    column-count: 1;
   }
 }
