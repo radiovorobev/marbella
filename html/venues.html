@@ -45,6 +45,21 @@
         <div class="header__menu_line"></div>
         <div class="header__menu_line"></div>
       </div>
+      <nav class="header__menu_mobile">
+        <ul class="header__menu_mobile-list">
+          <li><a href="./about.html">About</a></li>
+          <li><a href="./news.html">News</a></li>
+          <li><a href="./our-coaches.html">Our Coaches</a></li>
+          <li><a href="./venues.html">Venues</a></li>
+          <li><a href="./programmes.html">Programmes</a></li>
+          <li><a href="./contacts.html">Contacts</a></li>
+          <li>
+            <a href="https://wa.me/message/474IL7PF6E25O1" target="_blank">
+              <div class="header__cta-button-mobile-list">Join Us</div>
+            </a>
+          </li>
+        </ul>
+      </nav>
     </div>
   </header>
   <main>
@@ -107,74 +122,72 @@
   </main>
   <footer class="footer">
     <div class="footer__container">
-      <div>
-        <div class="header__logo_container">
+      <div class="footer__logo_container">
           <img src="./images/logo.svg" alt="Marbella International Football Academy" class="footer__logo">
-          <h1 class="header__logo_text">Marbella International Football Academy</h1>
-        </div>
-        <menu class="footer__menu_container">
-          <ul class="footer__menu">
-            <li>
-              <a href="#">Cookies Notice</a>
-              <!--
-              <ul class="footer__submenu">
-                <li><a href="#">Who we are?</a></li>
-                <li><a href="#">Management</a></li>
-                <li><a href="#">About Marbella</a></li>
-                <li><a href="#">Legal</a></li>
-              </ul>
-              -->
-            </li>
-            <li><a href="#">Privacy Policy</a></li>
-            <!-- 
-            <li><a href="./our-coaches.html">Our Coaches</a></li>
-            <li><a href="./venues.html">Venues</a></li>
-            <li><a href="./programmes.html">Programmes</a></li>
-            -->
-            <!--
-            <li><a href="#">Training Camps</a></li>
-            <li>
-              <a href="#">Media</a>
-              <ul  class="footer__submenu">
-                <li><a href="#">Video</a></li>
-                <li><a href="#">Photo</a></li>
-              </ul>
-            </li>
-            <li><a href="./contacts.html">Contacts</a></li>
-            -->
-          </ul>
-        </menu>
-        <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
+          <h1 class="footer__logo_text">Marbella International<br>Football Academy</h1>
       </div>
       <div class="footer__contacts">
         <a class="footer__phone" href="https://wa.me/message/474IL7PF6E25O1" target="_blank">+34 663 13 12 78</a>
-        <a class="footer__mail" href="info@academymarbella.com">info@academymarbella.com</a>
-        <d class="footer__social">
-          <a href="https://www.youtube.com/@academymarbella" target="_blank">
-            <img src="./images/icon_youtube.svg" alt="YouTube" class="footer__social-icon">
-          </a>
-          <a href="https://www.tiktok.com/@academymarbella" target="_blank">
-            <img src="./images/icon_tik-tok.svg" alt="TikTok" class="footer__social-icon">
-          </a>
-          <a href="https://www.instagram.com/academymarbella" target="_blank">
-            <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
-          </a>
-          <a href="https://www.facebook.com/academymarbella" target="_blank">
-            <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
-          </a>
-        </div>
+        <a class="footer__mail" href="mailto:info@academymarbella.com">info@academymarbella.com</a>
+      </div>
+      <menu class="footer__menu_container">
+        <ul class="footer__menu">
+          <li><a href="#">Cookies Notice</a></li>
+          <li><a href="#">Privacy Policy</a></li>
+        </ul>
+      </menu>
+      <div class="footer__social">
+        <a href="https://www.youtube.com/@academymarbella" target="_blank">
+          <img src="./images/icon_youtube.svg" alt="YouTube" class="footer__social-icon">
+        </a>
+        <a href="https://www.tiktok.com/@academymarbella" target="_blank">
+          <img src="./images/icon_tik-tok.svg" alt="TikTok" class="footer__social-icon">
+        </a>
+        <a href="https://www.instagram.com/academymarbella" target="_blank">
+          <img src="./images/icon_insta.svg" alt="Instagram" class="footer__social-icon">
+        </a>
+        <a href="https://www.facebook.com/academymarbella" target="_blank">
+          <img src="./images/icon_fb.svg" alt="Facebook" class="footer__social-icon">
+        </a>
+      </div>
+      <div class="footer__copyright-container">
+        <p class="footer__copyright">&copy; Marbella International Football Academy. 2025.</p>
+      </div>
+      <div class="footer__address-container">
+        <p class="footer__address">Primary Office:</p>
+        <p class="footer__address">La Dama de Noche, Nueva Andalucía, 29660 Marbella, Málaga</p>
       </div>
     </div>
   </footer>
+  <!-- Menu fade-in / fade-out script -->
+  <script>
+    document.addEventListener('scroll', function() {
+    const headerContainer = document.querySelector('.header__container');
+    if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
+      headerContainer.classList.add('scrolled');
+    } else {
+      headerContainer.classList.remove('scrolled');
+    }
+  });
+  </script>
+  <!-- Mobile menu button script -->
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const menuButton = document.querySelector(".header__menu_button");
+      const mobileMenu = document.querySelector(".header__menu_mobile");
+
+      menuButton.addEventListener("click", function () {
+        menuButton.classList.toggle("open");
+        mobileMenu.classList.toggle("open"); 
+      });
+
+      document.querySelectorAll(".header__menu_mobile-list a").forEach(link => {
+        link.addEventListener("click", function () {
+          menuButton.classList.remove("open");
+          mobileMenu.classList.remove("open");
+        });
+      });
+    });
+  </script>
 </body>
-<script>
-  document.addEventListener('scroll', function() {
-  const headerContainer = document.querySelector('.header__container');
-  if (window.scrollY > 50) { // 50 - это примерное значение, можно настроить
-    headerContainer.classList.add('scrolled');
-  } else {
-    headerContainer.classList.remove('scrolled');
-  }
-});
-</script>
 </html>
