@@ -278,7 +278,7 @@
 
 <!-- Gallery script -->
 <script>
-  // Instagram carousel functionality
+ // Instagram carousel functionality
 document.addEventListener('DOMContentLoaded', function() {
   const carousel = document.querySelector('.section__instagram_block');
   const rightButton = document.querySelector('.section__instagram_more-button:not(.left)');
@@ -302,6 +302,14 @@ document.addEventListener('DOMContentLoaded', function() {
   const slideDistance = imageWidth + imageGap;
   const totalImages = images.length;
   
+  // Adjust slideDistance for mobile
+  function getSlideDistance() {
+    if (window.innerWidth <= 768) {
+      return 220 + imageGap; // Smaller width on mobile
+    }
+    return slideDistance;
+  }
+  
   // Initialize
   function init() {
     // Set initial carousel styles for smooth transitions
@@ -313,14 +321,28 @@ document.addEventListener('DOMContentLoaded', function() {
     rightButton.addEventListener('click', slideRight);
     leftButton.addEventListener('click', slideLeft);
     
-    // Add touch and mouse event listeners
+    // Touch events for mobile
+    carousel.addEventListener('touchstart', touchStart, { passive: false });
+    carousel.addEventListener('touchmove', touchMove, { passive: false });
+    carousel.addEventListener('touchend', touchEnd);
+    
+    // Mouse events for desktop
     carousel.addEventListener('mousedown', dragStart);
-    carousel.addEventListener('touchstart', dragStart);
     carousel.addEventListener('mouseup', dragEnd);
-    carousel.addEventListener('touchend', dragEnd);
     carousel.addEventListener('mouseleave', dragEnd);
     carousel.addEventListener('mousemove', drag);
-    carousel.addEventListener('touchmove', drag);
+    
+    // Initial check for left button
+    updateLeftButtonVisibility();
+    
+    // Handle window resize
+    window.addEventListener('resize', updateCarouselOnResize);
+  }
+  
+  // Handle resize events
+  function updateCarouselOnResize() {
+    // Recalculate positions based on new screen size
+    setPositionByIndex(false);
   }
   
   // Show/hide left button based on position
@@ -334,23 +356,46 @@ document.addEventListener('DOMContentLoaded', function() {
   
   // Slide to the right
   function slideRight() {
-    currentIndex = (currentIndex + 1) % totalImages;
+    if (currentIndex < totalImages - 1) {
+      currentIndex += 1;
+    } else {
+      // For infinite loop, reset to beginning with smooth transition
+      currentIndex = 0;
+    }
     setPositionByIndex();
     updateLeftButtonVisibility();
   }
   
   // Slide to the left
   function slideLeft() {
-    currentIndex = (currentIndex - 1 + totalImages) % totalImages;
+    if (currentIndex > 0) {
+      currentIndex -= 1;
+    } else {
+      // For infinite loop, go to end with smooth transition
+      currentIndex = totalImages - 1;
+    }
     setPositionByIndex();
     updateLeftButtonVisibility();
   }
   
   // Set position based on current index
-  function setPositionByIndex() {
-    currentTranslate = currentIndex * -slideDistance;
+  function setPositionByIndex(animate = true) {
+    if (animate) {
+      carousel.style.transition = 'transform 0.3s ease-out';
+    } else {
+      carousel.style.transition = 'none';
+    }
+    
+    currentTranslate = currentIndex * -getSlideDistance();
     prevTranslate = currentTranslate;
     setCarouselPosition();
+    
+    // Reset transition after a short delay
+    if (!animate) {
+      setTimeout(() => {
+        carousel.style.transition = 'transform 0.3s ease-out';
+      }, 50);
+    }
   }
   
   // Apply transform to carousel
@@ -358,57 +403,81 @@ document.addEventListener('DOMContentLoaded', function() {
     carousel.style.transform = `translateX(${currentTranslate}px)`;
   }
   
-  // Start dragging
+  // Touch event handlers for mobile
+  function touchStart(event) {
+    startPosition = event.touches[0].clientX;
+    isDragging = true;
+    animationID = requestAnimationFrame(animation);
+    
+    // Stop default behavior (like page scrolling)
+    // But don't prevent default for all touch events to allow scrolling the page
+    if (Math.abs(event.touches[0].clientY - event.touches[0].clientY) < 10) {
+      event.preventDefault();
+    }
+  }
+  
+  function touchMove(event) {
+    if (isDragging) {
+      const currentPosition = event.touches[0].clientX;
+      const diff = currentPosition - startPosition;
+      
+      // If trying to scroll horizontally, prevent page scrolling
+      if (Math.abs(diff) > 5) {
+        event.preventDefault();
+      }
+      
+      currentTranslate = prevTranslate + diff;
+    }
+  }
+  
+  function touchEnd() {
+    cancelAnimationFrame(animationID);
+    isDragging = false;
+    
+    const movedBy = currentTranslate - prevTranslate;
+    
+    // Adjust threshold for swipe on mobile (use smaller threshold)
+    const threshold = window.innerWidth > 768 ? 100 : 50;
+    
+    if (movedBy < -threshold && currentIndex < totalImages - 1) {
+      currentIndex += 1;
+    } else if (movedBy > threshold && currentIndex > 0) {
+      currentIndex -= 1;
+    }
+    
+    setPositionByIndex();
+    updateLeftButtonVisibility();
+  }
+  
+  // Mouse event handlers for desktop
   function dragStart(event) {
     event.preventDefault();
-    if (event.type === 'touchstart') {
-      startPosition = event.touches[0].clientX;
-    } else {
-      startPosition = event.clientX;
-      carousel.style.cursor = 'grabbing';
-    }
+    startPosition = event.clientX;
+    carousel.style.cursor = 'grabbing';
     
     isDragging = true;
     animationID = requestAnimationFrame(animation);
   }
   
-  // Handle dragging
   function drag(event) {
     if (isDragging) {
-      let currentPosition;
-      if (event.type === 'touchmove') {
-        currentPosition = event.touches[0].clientX;
-      } else {
-        currentPosition = event.clientX;
-      }
-      
+      const currentPosition = event.clientX;
       const diff = currentPosition - startPosition;
       currentTranslate = prevTranslate + diff;
     }
   }
   
-  // End dragging
   function dragEnd() {
     cancelAnimationFrame(animationID);
     isDragging = false;
     carousel.style.cursor = 'grab';
     
-    // Determine if we should go to the next or previous slide based on drag distance
     const movedBy = currentTranslate - prevTranslate;
     
     if (movedBy < -100 && currentIndex < totalImages - 1) {
       currentIndex += 1;
     } else if (movedBy > 100 && currentIndex > 0) {
       currentIndex -= 1;
-    }
-    
-    // Handle wrap-around for infinite scrolling
-    if (currentIndex === totalImages) {
-      // Reset to first image when reaching the end
-      currentIndex = 0;
-    } else if (currentIndex < 0) {
-      // Go to last image when going left from the first
-      currentIndex = totalImages - 1;
     }
     
     setPositionByIndex();
