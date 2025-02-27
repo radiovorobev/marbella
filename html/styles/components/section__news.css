@@ -208,6 +208,11 @@ a:nth-child(3) .section__news_article {
   .section__news_lead {
     flex-flow: column;
   }
+
+  .section__news_news-header {
+    font-size: 20px;
+    line-height: 25.14px;
+  }
   
   .section__news_news-text { 
     display: none;

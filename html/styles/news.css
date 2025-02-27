@@ -4,6 +4,7 @@
 @import url(./components/header.css);
 
 @import url(./components/section__image.css);
+@import url(./components/section__news.css);
 
 @import url(./components/footer.css);
 
@@ -11,6 +12,7 @@ main {
   background-color: #f2f2f7;
 }
 
+/*
 .section__news {
   width: 100%;
   margin: 0 auto;
@@ -238,3 +240,5 @@ main {
     height: 40px;
   }
 }
+
+*/
