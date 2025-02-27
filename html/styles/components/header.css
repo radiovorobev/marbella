@@ -298,6 +298,31 @@
     transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
     z-index: 99;
     padding: 50px 40px 0 40px;
+    box-sizing: border-box;
+  }
+
+
+  .header__cta-button-mobile-list {
+    width: 100%;
+    height: 40px;
+    background-color: #c8e51f;
+    color: #000;
+    font-family: Cera Pro;
+    font-weight: 700;
+    font-size: 18px;
+    line-height: 22.63px;
+    letter-spacing: 0;
+    text-align: center;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    padding: 0 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    margin-top: 80px;
   }
 
   .header__menu_mobile-list {
@@ -305,6 +330,7 @@
     padding: 0;
     margin: 0;
     text-align: left;
+    width: 100%;
   }
 
   .header__menu_mobile-list li {
