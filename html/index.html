@@ -314,104 +314,124 @@
     });
   </script>
   <!-- Gallery script -->
-  <script>
-  document.addEventListener('DOMContentLoaded', function() {
-  // Скрываем стандартные стили Swiper
-  document.head.insertAdjacentHTML('beforeend', `
-    <style>
-      .swiper-wrapper {
-        display: flex;
-        transition-property: transform;
-        box-sizing: content-box;
+  <script>document.addEventListener('DOMContentLoaded', function() {
+    // Инициализация Swiper с улучшенными настройками для мобильных
+    var swiper = new Swiper('.swiper-container', {
+      slidesPerView: 'auto',    
+      spaceBetween: 20,         
+      loop: true,              
+      speed: 300,              
+      touchRatio: 1.5,          // Увеличиваем чувствительность касания для мобильных
+      touchAngle: 45,           // Допустимый угол для распознавания свайпа
+      touchMoveStopPropagation: true, // Предотвращает распространение событий касания
+      grabCursor: true,         // Курсор-рука при наведении
+      preventInteractionOnTransition: true, // Предотвращает взаимодействие во время анимации
+      autoHeight: false,        // Отключаем авто-высоту
+      cssMode: false,           // Отключаем CSS-режим, который может вызывать проблемы на iOS
+      simulateTouch: true,      // Включаем симуляцию касания на десктопах
+      threshold: 5,             // Минимальное расстояние перемещения для срабатывания свайпа
+      resistance: true,
+      resistanceRatio: 0.85,
+      breakpoints: {
+        320: {
+          spaceBetween: 10,     // Меньше отступов на самых маленьких экранах
+          slidesPerView: 'auto',
+          touchRatio: 2         // Еще более чувствительное касание на малых экранах
+        },
+        480: {
+          spaceBetween: 15,     // Средний отступ для небольших экранов
+          slidesPerView: 'auto'
+        },
+        768: {
+          spaceBetween: 20,
+          slidesPerView: 'auto'
+        }
       }
-      .swiper-container {
-        position: relative;
-        z-index: 1;
+    });
+    
+    // Связываем кнопки навигации
+    const prevButton = document.querySelector('.section__instagram_more-button.left');
+    const nextButton = document.querySelector('.section__instagram_more-button:not(.left)');
+    
+    if (prevButton && nextButton) {
+      prevButton.classList.remove('hidden');
+      
+      prevButton.addEventListener('click', function() {
+        swiper.slidePrev();
+      });
+      
+      nextButton.addEventListener('click', function() {
+        swiper.slideNext();
+      });
+      
+      // Улучшенное управление кнопками на мобильных
+      function updateButtonVisibility() {
+        if (window.innerWidth <= 1439) {
+          prevButton.style.display = 'none';
+          nextButton.style.display = 'none';
+        } else {
+          prevButton.style.display = 'flex';
+          nextButton.style.display = 'flex';
+        }
       }
-      /* Остальные стили Swiper не применяем */
-    </style>
-  `);
-  
-  // Инициализация Swiper
-  var swiper = new Swiper('.swiper-container', {
-    slidesPerView: 'auto',    // Автоматическое определение количества слайдов
-    spaceBetween: 20,         // Соответствует вашему gap
-    loop: true,               // Бесконечная прокрутка
-    speed: 300,               // Скорость анимации
-    centeredSlides: false,    // Не центрировать слайды
-    initialSlide: 0,          // Начинать с первого слайда
-    slidesOffsetBefore: 0,    // Нет отступа перед первым слайдом
-    resistance: true,         // Сопротивление при достижении края
-    resistanceRatio: 0.85,    // Уровень сопротивления
-    loopAdditionalSlides: 4,  // Дополнительные слайды для правильного loop
-    observer: true,           // Обновлять при изменении DOM
-    observeParents: true,     // Обновлять при изменении родителей
-    // Отключаем все лишнее
-    watchSlidesProgress: false,
-    watchSlidesVisibility: false,
-    navigation: false,
-    pagination: false,
-    scrollbar: false
-  });
-  
-  // Связываем ваши собственные кнопки со Swiper
-  const prevButton = document.querySelector('.section__instagram_more-button.left');
-  const nextButton = document.querySelector('.section__instagram_more-button:not(.left)');
-  
-  // Показываем левую кнопку
-  prevButton.classList.remove('hidden');
-  
-  // Добавляем обработчики событий для кнопок
-  prevButton.addEventListener('click', function() {
-    swiper.slidePrev();
-  });
-  
-  nextButton.addEventListener('click', function() {
-    swiper.slideNext();
-  });
-  
-  // Управление видимостью кнопок на мобильных устройствах
-  function updateButtonVisibility() {
-    if (window.innerWidth <= 1439) {
-      prevButton.style.display = 'none';
-      nextButton.style.display = 'none';
-    } else {
-      prevButton.style.display = 'flex';
-      nextButton.style.display = 'flex';
+      
+      updateButtonVisibility();
+      window.addEventListener('resize', updateButtonVisibility);
     }
-  }
-  
-  // Вызываем функцию при загрузке и изменении размера окна
-  updateButtonVisibility();
-  window.addEventListener('resize', updateButtonVisibility);
-  
-  // Предотвращаем применение стилей Swiper, которые могут нарушить ваш дизайн
-  swiper.on('init', function() {
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => {
-      // Сохраняем точные размеры слайдов
-      if (window.innerWidth <= 768) {
-        slide.style.width = '220px';
-      } else {
-        slide.style.width = '290px';
+    
+    // Корректировка размеров слайдов для различных устройств
+    function updateSlidesSizes() {
+      const slides = document.querySelectorAll('.swiper-slide');
+      const windowWidth = window.innerWidth;
+      
+      slides.forEach(slide => {
+        if (windowWidth <= 480) {
+          // Очень маленькие экраны
+          slide.style.width = '180px';
+          slide.style.height = '226px';
+        } else if (windowWidth <= 768) {
+          // Средние экраны (планшеты, большие телефоны)
+          slide.style.width = '220px';
+          slide.style.height = '276px';
+        } else {
+          // Десктопы и большие планшеты
+          slide.style.width = '290px';
+          slide.style.height = '364px';
+        }
+      });
+      
+      // Обновляем swiper после изменения размеров
+      swiper.update();
+    }
+    
+    // Вызываем функцию сразу и при изменении размеров окна
+    updateSlidesSizes();
+    window.addEventListener('resize', updateSlidesSizes);
+    
+    // Дополнительно - исправляем обработку касаний на iOS и Android
+    document.addEventListener('touchmove', function(e) {
+      if (e.target.closest('.swiper-container')) {
+        // Предотвращаем прокрутку страницы при свайпе слайдера
+        // но только если это действительно горизонтальный свайп
+        const touchStartX = swiper.touchEventsData.startX;
+        const touchCurrentX = e.touches[0].pageX;
+        const touchStartY = swiper.touchEventsData.startY;
+        const touchCurrentY = e.touches[0].pageY;
+        
+        const diffX = Math.abs(touchCurrentX - touchStartX);
+        const diffY = Math.abs(touchCurrentY - touchStartY);
+        
+        if (diffX > diffY && diffX > 10) {
+          e.preventDefault();
+        }
       }
-      slide.style.marginRight = '20px';
-    });
+    }, { passive: false });
+    
+    // Добавляем обработчик событий для предотвращения проблем с двойными касаниями
+    document.querySelector('.swiper-container').addEventListener('touchstart', function(e) {
+      // Ничего не делаем, но это помогает с некоторыми проблемами iOS
+    }, { passive: true });
   });
-  
-  // Обновляем размеры слайдов при изменении размера окна
-  window.addEventListener('resize', function() {
-    const slides = document.querySelectorAll('.swiper-slide');
-    slides.forEach(slide => {
-      if (window.innerWidth <= 768) {
-        slide.style.width = '220px';
-      } else {
-        slide.style.width = '290px';
-      }
-    });
-    swiper.update(); // Обновляем Swiper
-  });
-});
   </script>
 </body>
 </html>
