@@ -1,10 +1,10 @@
-@import url(../../vendor/normalize.css);
-@import url(../../vendor/fonts/fonts.css);
+@import url(../vendor/normalize.css);
+@import url(../vendor/fonts/fonts.css);
 
-@import url(../../styles/components/header.css);
+@import url(../styles/components/header.css);
 
-@import url(../../styles/components/section__news.css);
-@import url(../../styles/components/footer.css);
+@import url(../styles/components/section__news.css);
+@import url(../styles/components/footer.css);
 
 main {
   background-color: #f2f2f7;
