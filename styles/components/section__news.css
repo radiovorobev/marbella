@@ -43,8 +43,8 @@ a:nth-child(odd) .section__news_article {
   margin-right: 20px;
 }
  
-a:nth-child(1) .section__news_article .section__news_news-text,
-a:nth-child(4) .section__news_article .section__news_news-text {
+a:nth-child(4n+1) .section__news_article .section__news_news-text,
+a:nth-child(4n+4) .section__news_article .section__news_news-text {
   display: none;
 }
 
