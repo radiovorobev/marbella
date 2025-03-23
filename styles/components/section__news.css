@@ -36,15 +36,11 @@
   align-items: flex-start;
   background-color: #f2f2f7;
   cursor: pointer;
+  margin-bottom: 20px;
 }
 
 a:nth-child(odd) .section__news_article {
   margin-right: 20px;
-}
-
-a:nth-child(1) .section__news_article,
-a:nth-child(2) .section__news_article {
-  margin-bottom: 20px;
 }
  
 a:nth-child(1) .section__news_article .section__news_news-text,
